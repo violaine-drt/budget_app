@@ -11,16 +11,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@AllArgsConstructor
-@RestController
-@RequestMapping("/api/users")
+@AllArgsConstructor //annotation Lombok, génère constructor
+@RestController //indique la nature de controller
+@RequestMapping("/api/users") //indique que toutes les routes débuterons par ce segment
 public class UserController {
+    //injection du service userService dans la classe
     private UserService userService;
 
     //Build Add User REST API
-    @PostMapping
+    @PostMapping //annotation, indique que la méthode suivante correspondra à un post
+    //Retour = ResponseEntity : une classe fournie par Spring, représente une réponse HTTP.
+    //Encapsule un objet de type UserDto
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
+        //On appelle la méthode createUser du service sur l'objet userDto
         UserDto savedUser = userService.createUser(userDto);
+        //On retourne
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
