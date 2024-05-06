@@ -1,7 +1,7 @@
 package net.violainedrt.budget.service;
 
 import net.violainedrt.budget.dto.TypeDto;
-import net.violainedrt.budget.entity.Type;
+
 
 import java.util.List;
 
