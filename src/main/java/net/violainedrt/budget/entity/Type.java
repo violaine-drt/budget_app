@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter //lombok annotation, automatically generates getter methods
 @Setter
 @NoArgsConstructor
@@ -18,4 +20,5 @@ public class Type {
     private Long id;
     @Column(nullable = false, unique = true)
     private String name;
+
 }

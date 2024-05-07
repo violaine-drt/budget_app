@@ -8,14 +8,16 @@ public class UserMapper {
         return new UserDto(
                user.getId(),
                user.getName(),
-               user.getEmail()
+               user.getEmail(),
+                user.getTransactions()
         );
     }
     public static User mapToUser(UserDto userDto){
         return new User(
                 userDto.getId(),
                 userDto.getName(),
-                userDto.getEmail()
+                userDto.getEmail(),
+                userDto.getTransactions()
         );
     }
 }

@@ -1,0 +1,7 @@
+package net.violainedrt.budget.repository;
+
+import net.violainedrt.budget.entity.Transaction;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TransactionRepository extends JpaRepository<Transaction, Long> {
+}

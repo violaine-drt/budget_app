@@ -9,6 +9,8 @@ public class CategoryMapper {
                 category.getId(),
                 category.getName(),
                 category.getParent(),
+                category.getChildren(),
+                category.getTransactions(),
                 category.getCreatedAt(),
                 category.getUpdatedAt()
         );
@@ -19,6 +21,8 @@ public class CategoryMapper {
                 categoryDto.getId(),
                 categoryDto.getName(),
                 categoryDto.getParent(),
+                categoryDto.getChildren(),
+                categoryDto.getTransactions(),
                 categoryDto.getCreatedAt(),
                 categoryDto.getUpdatedAt()
         );
