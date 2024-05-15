@@ -1,0 +1,25 @@
+ion-spinner {
+   --color: var(--ion-color-vividPink)
+}
+
+.flex-xcenter-ybottom {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position : relative;
+    top: 60%;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background-color: rgb(246, 255, 0);
+}
+
+.screen-box {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position : absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--ion-color-lightCream);
+}
