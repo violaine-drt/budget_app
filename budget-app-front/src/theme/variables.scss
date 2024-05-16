@@ -23,7 +23,7 @@
 	--ion-color-vividOrange-shade: #e03600;
 	--ion-color-vividOrange-tint: #ff501a;
 
-    --ion-color-simplewhite: #FFF8F2;
+    --ion-color-simplewhite: #ffffff;
 	--ion-color-simplewhite-rgb: 255,255,255;
 	--ion-color-simplewhite-contrast: #421313;
 	--ion-color-simplewhite-contrast-rgb: 66,19,19;
@@ -64,4 +64,11 @@
 	--ion-color-medium-contrast-rgb: :255,248,242;
 	--ion-color-medium-shade: #5d636d;
 	--ion-color-medium-tint: #6D7A88;
+
+	--ion-font-family-maintitle: 'Castoro', 'Georgia', serif, !important;
+	--ion-font-family-mainbutton: 'Castoro', 'Georgia', serif, !important;
+	--ion-font-family-body: 'Urbanist', 'Geneva' , 'Verdana', sans serif, !important;
+	--ion-font-family-subtitle: 'Urbanist', 'Geneva' , 'Verdana', sans serif, !important;
+
+
 }
