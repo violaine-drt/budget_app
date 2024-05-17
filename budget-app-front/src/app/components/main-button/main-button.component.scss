@@ -1,0 +1,46 @@
+// .main-button-holder {
+
+//   &__main-button:hover {
+//     background-color: var(--ion-color-darkGreen-shade);
+//   }
+
+ 
+// }
+
+.test {
+  --background: var(--ion-color-primary);
+  --background-hover: var(--ion-color-primary-shade);
+  font-family: Castoro;
+  text-transform: none;
+  color: var(--ion-color-lightcream);
+ 
+ &:hover { 
+  background-color: var(--ion-color-lightcream);
+ } 
+}
+
+// .main-button {
+//   background-color: var(--ion-color-darkGreen);
+//   border-radius: 8px;
+//   border-style: none;
+//   box-sizing: border-box;
+//   width : 50vw;
+//   max-height: 30vh;
+//   margin: 0;
+//   outline: none;
+//   padding: 10px 20px;
+//   position: relative;
+//   text-align: center;
+//   transition: color 100ms;
+//   vertical-align: baseline;
+//   color: var(--ion-color-lightcream);
+//   font-family: var(--ion-font-family-maintitle);
+//   font-size: 1em; 
+//   letter-spacing: 0.1em; 
+//   font-weight: 500;
+  
+// }
+
+// .main-button:hover {
+//   background-color: var(--ion-color-darkGreen-shade);
+// }

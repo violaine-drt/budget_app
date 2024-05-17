@@ -2,12 +2,13 @@
 // http://ionicframework.com/docs/theming/
 
 :root {
-	--ion-color-darkGreen: #306050;
-	--ion-color-darkGreen-rgb: 48,96,80;
-	--ion-color-darkGreen-contrast: #FFF8F2;
-	--ion-color-darkGreen-contrast-rgb: 255,248,242;
-	--ion-color-darkGreen-shade: #2a5446;
-	--ion-color-darkGreen-tint: #457062;
+
+	--ion-color-primary: #306050;
+	--ion-color-primary-rgb: 48,96,80;
+	--ion-color-primary-contrast: #FFF8F2;
+	--ion-color-primary-contrast-rgb: 255,248,242;
+	--ion-color-primary-shade: #0d1b16;
+	--ion-color-primary-tint: #457062;
 
 	--ion-color-vividPink: #FF008A;
 	--ion-color-vividPink-rgb: 255,0,138;
@@ -65,10 +66,10 @@
 	--ion-color-medium-shade: #5d636d;
 	--ion-color-medium-tint: #6D7A88;
 
-	--ion-font-family-maintitle: 'Castoro', 'Georgia', serif, !important;
-	--ion-font-family-mainbutton: 'Castoro', 'Georgia', serif, !important;
-	--ion-font-family-body: 'Urbanist', 'Geneva' , 'Verdana', sans serif, !important;
-	--ion-font-family-subtitle: 'Urbanist', 'Geneva' , 'Verdana', sans serif, !important;
+	--ion-font-family-maintitle: 'Castoro', 'Georgia', serif;
+	--ion-font-family-mainbutton: 'Castoro', 'Georgia', serif;
+	--ion-font-family-body: 'Urbanist', 'Geneva' , 'Verdana', sans serif;
+	--ion-font-family-subtitle: 'Urbanist', 'Geneva' , 'Verdana', sans serif;
 
 
 }

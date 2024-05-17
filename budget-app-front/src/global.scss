@@ -11,18 +11,94 @@
 
  * {
     --background: var(--ion-color-lightcream);
+    font-family: "Urbanist", sans-serif;
+
 
   }
 
   @font-face {
-    font-family: "Castoro", serif;
-    src: url('./assets/Castoro/Castoro-Regular.ttf');
-  }
+    font-family: 'Castoro';
+    src: url('./assets/Castoro/Castoro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
-  @font-face {
-    font-family: "Urbanist", serif;
-    src: url('./assets/Urbanist/Urbanist-VariableFont_wght.ttf');
-  }
+@font-face {
+  font-family: 'Urbanist';
+  src: url('./assets/Urbanist/Urbanist-Regular.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist-Italic';
+  src: url('./assets/Urbanist/Urbanist-Italic.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist-Bold';
+  src: url('./assets/Urbanist/Urbanist-Bold.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist-Light';
+  src: url('./assets/Urbanist/Urbanist-Light.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist-Black';
+  src: url('./assets/Urbanist/Urbanist-Black.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Urbanist-SemiBold';
+  src: url('./assets/Urbanist/Urbanist-SemiBold.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist-Medium';
+  src: url('./assets/Urbanist/Urbanist-Medium.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist-Extraligh';
+  src: url('./assets/Urbanist/Urbanist-ExtraLight.woff2') format('woff2'),
+      url('./assets/Urbanist/Urbanist-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
