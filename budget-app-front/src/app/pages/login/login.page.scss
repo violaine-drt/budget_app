@@ -1,23 +1,11 @@
+.login-page-logo {
+    width: 25%;
+    padding-bottom: 5rem;
+    position:relative;
+}
 
 .main-button {
-    display: flex;
-    justify-content: center;
-    position : relative;
-    margin:auto;
-    top: 35%;
-    align-items: center;
     width: 100%;
-
-
-}
-.login-page-logo {
-    display: flex;
-    justify-content: center ;
-    align-items: flex-start;
-    position : absolute;
-    top:5%;
-    margin:0;
-    height: 15%;
-    width: 20%;
+    margin-top: 10vh;
 }
 
