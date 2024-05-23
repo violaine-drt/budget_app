@@ -1,0 +1,16 @@
+.main-button {
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.welcome-page-wrapper {
+  background-color: var(--ion-color-lightcream);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-top: 50%;
+}

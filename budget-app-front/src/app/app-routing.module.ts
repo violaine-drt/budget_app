@@ -18,6 +18,22 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'forgotten-password',
+    loadChildren: () => import('./pages/forgotten-password/forgotten-password.module').then( m => m.ForgottenPasswordPageModule)
+  },
+  {
+    path: 'welcome-login',
+    loadChildren: () => import('./pages/welcome-login/welcome-login.module').then( m => m.WelcomeLoginPageModule)
+  },
+  {
+    path: 'homepage',
+    loadChildren: () => import('./pages/homepage/homepage.module').then( m => m.HomepagePageModule)
   }
 ];
 

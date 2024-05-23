@@ -9,41 +9,45 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
- body {
-background-color: var(--ion-color-lightcream);
+body {
+  background-color: var(--ion-color-lightcream);
+}
 
- }
+ion-content {
+  font-family: "Urbanist", sans-serif;
+  background: var(--ion-color-lightcream);
+}
 
- ion-content {
-    font-family: "Urbanist", sans-serif;
-    background: var(--ion-color-lightcream);
-    
-  }
+.login-page-logo {
+  width: 25%;
+  max-width: 130px;
+  position: relative;
+}
 
-  .scroll-content{
-    background: var(--ion-color-lightcream);
-  }
+.scroll-content {
+  background: var(--ion-color-lightcream);
+}
 
-  .page-wrapper {
-    background-color: var(--ion-color-lightcream);
-    display:flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content:center;
-    overflow: hidden;
-  }
+.page-wrapper {
+  background-color: var(--ion-color-lightcream);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-  .input-container {
-    position: relative;
-    width: 90%;
-    max-width: 550px;
+.input-container {
+  position: relative;
+  width: 90%;
+  max-width: 550px;
 
   ion-input.custom {
     --background: #ffffff;
     --color: var(--ion-color-medium-tint);
-    --placeholder-color:var(--ion-color-medium-shade);
+    --placeholder-color: var(--ion-color-medium-shade);
     --placeholder-opacity: 0.8;
     --padding-bottom: 10px;
     --padding-end: 10px;
@@ -53,7 +57,6 @@ background-color: var(--ion-color-lightcream);
     font-family: var(--ion-font-family-body);
     --highlight-color-focused: var(--ion-color-lightcream-shade);
     --border-color: var(--ion-color-lightcream-shade);
-
   }
 
   .sublink {
@@ -68,114 +71,137 @@ background-color: var(--ion-color-lightcream);
   --border-color: var(--ion-color-lightcream-shade);
 }
 
-
-.linkbox{
+.linkbox {
   display: flex;
   position: relative;
   width: 100%;
   max-width: 550px;
   align-items: center;
+  justify-content: center;
 
   &__text {
-
+    color: var(--ion-color-dark);
+    margin-right: 4px;
   }
   &__link {
-
+    text-decoration: none;
+    font-family: "Urbanist-Bold";
   }
 }
 
+.titles-display {
+  position: relative;
+}
+.big-title {
+  color: var(--ion-color-dark);
+  font-size: 1.5em;
+  font-family: "Castoro";
+  margin-bottom: 3%;
+}
 
-  @font-face {
-    font-family: 'Castoro';
-    src: url('./assets/Castoro/Castoro-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+.subtitle {
+  color: var(--ion-color-medium);
+  font-size: 0.9em;
+  margin-bottom: 10%;
+  margin-top: 0%;
+}
+.medium-title {
+  color: var(--ion-color-lightcream);
+  font-size: 1.1em;
+  font-family: "Castoro";
+  margin-bottom: 3%;
+  width: 70%;
+  max-width: 300px;
 }
 
 @font-face {
-  font-family: 'Playfair-Display';
-  src: url('./assets/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') format('ttf');
+  font-family: "Castoro";
+  src: url("./assets/Castoro/Castoro-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('./assets/Urbanist/Urbanist-Regular.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-Regular.woff') format('woff');
+  font-family: "Playfair-Display";
+  src: url("./assets/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf")
+    format("ttf");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist-Italic';
-  src: url('./assets/Urbanist/Urbanist-Italic.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-Italic.woff') format('woff');
+  font-family: "Urbanist";
+  src: url("./assets/Urbanist/Urbanist-Regular.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbanist-Italic";
+  src: url("./assets/Urbanist/Urbanist-Italic.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist-Bold';
-  src: url('./assets/Urbanist/Urbanist-Bold.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-Bold.woff') format('woff');
+  font-family: "Urbanist-Bold";
+  src: url("./assets/Urbanist/Urbanist-Bold.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist-Light';
-  src: url('./assets/Urbanist/Urbanist-Light.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-Light.woff') format('woff');
+  font-family: "Urbanist-Light";
+  src: url("./assets/Urbanist/Urbanist-Light.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist-Black';
-  src: url('./assets/Urbanist/Urbanist-Black.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-Black.woff') format('woff');
+  font-family: "Urbanist-Black";
+  src: url("./assets/Urbanist/Urbanist-Black.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
-
-
 @font-face {
-  font-family: 'Urbanist-SemiBold';
-  src: url('./assets/Urbanist/Urbanist-SemiBold.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-SemiBold.woff') format('woff');
+  font-family: "Urbanist-SemiBold";
+  src: url("./assets/Urbanist/Urbanist-SemiBold.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist-Medium';
-  src: url('./assets/Urbanist/Urbanist-Medium.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-Medium.woff') format('woff');
+  font-family: "Urbanist-Medium";
+  src: url("./assets/Urbanist/Urbanist-Medium.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist-Extraligh';
-  src: url('./assets/Urbanist/Urbanist-ExtraLight.woff2') format('woff2'),
-      url('./assets/Urbanist/Urbanist-ExtraLight.woff') format('woff');
+  font-family: "Urbanist-Extraligh";
+  src: url("./assets/Urbanist/Urbanist-ExtraLight.woff2") format("woff2"),
+    url("./assets/Urbanist/Urbanist-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
-
-
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
