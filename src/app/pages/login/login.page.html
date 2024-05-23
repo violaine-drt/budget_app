@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <div class="page-wrapper">
+    <app-flouze-logo class="login-page-logo"></app-flouze-logo>
+    <div class="input-container">
+      <ion-input
+        aria-label="Email input"
+        type="email"
+        fill="outline"
+        placeholder="Email"
+        class="custom"
+      ></ion-input>
+      <ion-input
+        aria-label="Password input"
+        type="password"
+        fill="outline"
+        placeholder="Mot de passe"
+        class="custom"
+      >
+      </ion-input>
+      <a class="sublink" href="">Mot de passe oublié ?</a>
+    </div>
+    <app-main-button
+      class="main-button"
+      [buttonTitle]="'Connexion'"
+    ></app-main-button>
+    <div class="linkbox">
+      <p class="linkbox__text">Pas encore de compte ?</p>
+      <a class="linkbox__link" href=""> S’inscrire</a>
+    </div>
+  </div>
+</ion-content>

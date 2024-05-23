@@ -1,0 +1,29 @@
+.button-holder {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+
+  &__button {
+    --background: var(--ion-color-primary);
+    --background-hover: var(--ion-color-primary-shade);
+    font-family: "Castoro";
+    font-size: 1em;
+    --border-radius: 8px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    margin: 0;
+    text-transform: none;
+    color: var(--ion-color-lightcream);
+    width: 80%;
+    max-width: 400px;
+    --border-width: 0;
+    &:hover {
+      background-color: var(--ion-color-lightcream);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<ion-content [fullscreen]="true">
+  <div class="page-wrapper">
+    <app-flouze-logo class="login-page-logo"></app-flouze-logo>
+    <div class="input-container">
+      <ion-input
+        aria-label="Username input"
+        fill="outline"
+        placeholder="Nom d'utilisateur"
+        class="custom"
+      ></ion-input>
+      <ion-input
+        aria-label="Email input"
+        type="email"
+        fill="outline"
+        placeholder="Email"
+        class="custom"
+      ></ion-input>
+      <ion-input
+        aria-label="Password input"
+        type="password"
+        fill="outline"
+        placeholder="Mot de passe"
+        class="custom"
+      ></ion-input>
+      <ion-input
+        aria-label="Confirm password input"
+        type="password"
+        fill="outline"
+        placeholder="Confirmez votre de passe"
+        class="custom"
+      ></ion-input>
+    </div>
+    <app-main-button
+      class="main-button"
+      [buttonTitle]="'Je valide et je m\'inscris'"
+    ></app-main-button>
+    <div class="linkbox">
+      <p class="linkbox__text">Déjà inscrit ?</p>
+      <a class="linkbox__link" href=""> Se connecter </a>
+    </div>
+  </div>
+</ion-content>
