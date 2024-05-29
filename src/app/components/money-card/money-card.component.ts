@@ -11,8 +11,8 @@ export class MoneyCardComponent implements OnInit {
   @Input() expenseAmount: number = 0;
   @Input() backgroundColor: string = '#E8FFEA';
   @Input() fontColor: string = '#306050';
+  @Input() borderTop: string = '1vh solid rgb(255, 255, 255';
 
   constructor() {}
-
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

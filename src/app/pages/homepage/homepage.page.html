@@ -3,18 +3,34 @@
     <div class="homepage-header">
       <p class="medium-title">Afficher mes dépenses et revenus par :</p>
       <div class="date-menu-wrapper">
-        <button class="small-button">jour</button>
-        <button class="small-button">semaine</button>
-        <button class="small-button">mois</button>
-        <button class="small-button">année</button>
+        <ul>
+          <li>
+            <a class="tab-link">jour</a>
+          </li>
+          <li>
+            <a class="tab-link">semaine</a>
+          </li>
+          <li>
+            <a class="tab-link">mois</a>
+          </li>
+          <li>
+            <a class="tab-link">année</a>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="homepage-content">
-      <p class="small-subtitle">Date selon menu</p>
-      <app-money-card
-        [backgroundColor]="'#FFF3F9'"
-        [fontColor]="'#FF3D00'"
-      ></app-money-card>
-    </div>
+  </div>
+  <div class="homepage-content">
+    <p class="small-subtitle">Date selon menu</p>
+    <app-money-card
+      [backgroundColor]="'#FFF3F9'"
+      [fontColor]="'#FF3D00'"
+      [borderTop]="'1vh solid rgb(255, 255, 255)'"
+    ></app-money-card>
+    <app-money-card
+      [expenseType]="'recettes'"
+      [borderTop]="'0vh solid rgb(255, 255, 255)'"
+    >
+    </app-money-card>
   </div>
 </ion-content>
