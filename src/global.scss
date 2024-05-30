@@ -99,11 +99,10 @@ ion-content {
   margin-bottom: 3%;
 }
 
-.subtitle {
-  color: var(--ion-color-medium);
-  font-size: 0.9em;
-  margin-bottom: 10%;
-  margin-top: 0%;
+.money-numbers {
+  color: var(--ion-color-vividPink);
+  font-size: 3em;
+  font-family: "Castoro";
 }
 
 .medium-title {
@@ -113,6 +112,21 @@ ion-content {
   margin-bottom: 3%;
   width: 70%;
   max-width: 300px;
+}
+
+.page-title {
+  color: var(--ion-color-dark);
+  font-size: 1.1em;
+  font-family: "Castoro";
+  margin-bottom: 3%;
+  width: 70%;
+  max-width: 300px;
+}
+.subtitle {
+  color: var(--ion-color-medium);
+  font-size: 0.9em;
+  margin-bottom: 10%;
+  margin-top: 0%;
 }
 
 @font-face {
