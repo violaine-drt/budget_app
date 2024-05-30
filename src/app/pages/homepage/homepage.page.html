@@ -1,6 +1,59 @@
 <ion-content [fullscreen]="true">
   <div class="homepage-wrapper">
     <div class="homepage-header">
+      <div class="top-left-dropdown-menu">
+        <ion-button id="bottom-start"><img class="three-dots" /></ion-button>
+        <ion-popover
+          class="menu"
+          trigger="bottom-start"
+          side="bottom"
+          size="auto"
+          alignment="start"
+        >
+          <ng-template>
+            <ion-content
+              ><ion-list lines="none" class="ion-list">
+                <ion-item class="ion-item" [button]="true" [detail]="false"
+                  >Accueil</ion-item
+                >
+                <ion-item class="ion-item" [button]="true" [detail]="false"
+                  >Nouveau revenu</ion-item
+                >
+                <ion-item class="ion-item" [button]="true" [detail]="false"
+                  >Nouvelle dépense</ion-item
+                >
+                <ion-item class="ion-item" [button]="true" [detail]="false"
+                  >Mon analyse</ion-item
+                >
+                <ion-item class="ion-item" [button]="true" [detail]="false"
+                  >Catégories</ion-item
+                >
+                <ion-item class="ion-item" [button]="true" [detail]="false"
+                  >Mon compte</ion-item
+                >
+                <ion-item class="ion-item" [button]="true" [detail]="false"
+                  >Déconnexion</ion-item
+                >
+              </ion-list>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+      </div>
+      <!-- <label class="dropdown">
+        <nav>
+          <div class="dd-button"><img class="three-dots" /></div>
+          <input type="checkbox" class="dd-input" id="test" />
+          <ul class="dd-menu">
+            <li>Rest</li>
+            <li>Another action</li>
+            <li>Something else here</li>
+            <li class="divider"></li>
+            <li>
+              <a href="http://rane.io">Link to Rane.io</a>
+            </li>
+          </ul>
+        </nav>
+      </label> -->
       <h1 class="medium-title">Afficher mes dépenses et revenus par :</h1>
       <div class="date-menu-wrapper">
         <ul>
@@ -26,20 +79,24 @@
     <ion-card class="expense-card">
       <ion-row class="ion-align-items-center">
         <ion-card-content class="expense-type">dépenses : </ion-card-content>
-        <ion-card-content class="expense-amount">- 0€</ion-card-content>
+        <ion-card-content class="expense-amount" aria-live="polite"
+          >- 0€</ion-card-content
+        >
       </ion-row>
-      <button class="ion--ellipsis-horizontal"></button>
+      <button class="bottom-right-dropdown-button"></button>
     </ion-card>
 
     <ion-card class="income-card">
       <ion-row class="ion-align-items-center">
         <ion-card-content class="expense-type">recettes : </ion-card-content>
-        <ion-card-content class="expense-amount">+ 0€</ion-card-content>
+        <ion-card-content class="expense-amount" aria-live="polite"
+          >+ 0€</ion-card-content
+        >
       </ion-row>
-      <button class="ion--ellipsis-horizontal"></button>
+      <button class="bottom-right-dropdown-button"></button>
     </ion-card>
     <h2 class="page-title">Mon solde actuel :</h2>
     <app-flouze-logo-plain class="homepage-logo"></app-flouze-logo-plain>
-    <p class="money-numbers">1 200 €</p>
+    <p class="money-numbers" aria-live="polite">1200 €</p>
   </div>
 </ion-content>
