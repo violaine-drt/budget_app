@@ -22,7 +22,15 @@
   </div>
   <div class="homepage-content">
     <p class="small-subtitle">Date selon menu</p>
-    <app-money-card
+
+    <ion-card class="money-card">
+      <ion-row class="ion-align-items-center">
+        <ion-card-content class="expense-type">dépenses : </ion-card-content>
+        <ion-card-content class="expense-amount">0€</ion-card-content>
+      </ion-row>
+      <button class="ion--ellipsis-horizontal"></button>
+    </ion-card>
+    <!-- <app-money-card
       [backgroundColor]="'#FFF3F9'"
       [fontColor]="'#FF3D00'"
       [borderTop]="'1vh solid rgb(255, 255, 255)'"
@@ -31,6 +39,6 @@
       [expenseType]="'recettes'"
       [borderTop]="'0vh solid rgb(255, 255, 255)'"
     >
-    </app-money-card>
+    </app-money-card> -->
   </div>
 </ion-content>
