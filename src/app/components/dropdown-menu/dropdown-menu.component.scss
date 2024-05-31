@@ -1,0 +1,85 @@
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.top-left-dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.bottom-right-dropdown-menu {
+  position: absolute;
+  bottom: 0.3rem;
+  right: 0.5rem;
+  border: none;
+  box-shadow: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--ion-color-dark);
+}
+
+.ion-button {
+  --border-radius: 4px;
+  --padding-top: 0em;
+  --padding-bottom: 0em;
+  --padding-start: 0em;
+  --padding-end: 0em;
+}
+.button-solid {
+  --box-shadow: none;
+  --background-hover: none;
+  --color: var(--button-solid-color, --ion-color-lightcream);
+}
+.three-dots {
+  position: relative;
+  color: current;
+  width: 20px;
+  height: 18px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='48' fill='%23000'/%3E%3Ccircle cx='416' cy='256' r='48' fill='%23000'/%3E%3Ccircle cx='96' cy='256' r='48' fill='%23000'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  &:hover {
+    animation: bounce 0.5s ease-in-out infinite;
+  }
+}
+
+.ion-list {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.ion-item {
+  --padding: 0;
+  --margin: 0;
+  --background: var(--ion-color-lightcream);
+  --color: var(--ion-color-dark);
+  font-family: "Urbanist";
+  --border-color: white;
+  --border-width: 1px;
+  --padding-bottom: 0px;
+  --border-bottom: 0px;
+}
+
+.menu {
+  background: rgba(255, 246, 239, 0.79);
+  &::part(content) {
+    max-width: 200px;
+  }
+}

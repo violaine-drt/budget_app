@@ -1,0 +1,46 @@
+<div [class]="menuPosition">
+  <ion-button
+    [id]="menuSide"
+    class="button-solid"
+    [ngStyle]="{ '--button-solid-color': buttonSolidColor }"
+    ><img class="three-dots"
+  /></ion-button>
+  <ion-popover
+    [class]="menuClass"
+    [trigger]="trigger"
+    [side]="side"
+    [size]="size"
+    [alignment]="alignment"
+  >
+    <ng-template>
+      <ion-content
+        ><ion-list lines="none" class="ion-list">
+          <ion-item class="ion-item" [button]="true" [detail]="false">
+            <a href="http://rane.io">Link to Rane.io</a></ion-item
+          >
+          <ion-item class="ion-item" [button]="true" [detail]="false"
+            >Nouveau revenu</ion-item
+          >
+          <ion-item class="ion-item" [button]="true" [detail]="false"
+            >Nouvelle dépense</ion-item
+          >
+          <ion-item class="ion-item" [button]="true" [detail]="false"
+            >Mon historique</ion-item
+          >
+          <ion-item class="ion-item" [button]="true" [detail]="false"
+            >Mon analyse</ion-item
+          >
+          <ion-item class="ion-item" [button]="true" [detail]="false"
+            >Catégories</ion-item
+          >
+          <ion-item class="ion-item" [button]="true" [detail]="false"
+            >Mon compte</ion-item
+          >
+          <ion-item class="ion-item" [button]="true" [detail]="false"
+            >Déconnexion</ion-item
+          >
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+</div>
