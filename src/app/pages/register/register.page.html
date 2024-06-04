@@ -31,12 +31,15 @@
       ></ion-input>
     </div>
     <app-main-button
+      (onClick)="redirectWelcomeFirstLogin()"
       class="main-button"
       [buttonTitle]="'Je valide et je m\'inscris'"
     ></app-main-button>
-    <div class="linkbox">
-      <p class="linkbox__text">Déjà inscrit ?</p>
-      <a class="linkbox__link" href=""> Se connecter </a>
+    <div class="linkBox">
+      <p class="linkBoxText">Déjà inscrit ?</p>
+      <ion-button class="linkBoxButton" (click)="redirectLogin()"
+        >Se connecter
+      </ion-button>
     </div>
   </div>
 </ion-content>

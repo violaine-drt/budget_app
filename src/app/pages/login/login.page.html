@@ -20,12 +20,15 @@
       <a class="sublink" href="">Mot de passe oublié ?</a>
     </div>
     <app-main-button
+      (onClick)="redirectWelcomeLogin()"
       class="main-button"
       [buttonTitle]="'Connexion'"
     ></app-main-button>
-    <div class="linkbox">
-      <p class="linkbox__text">Pas encore de compte ?</p>
-      <a class="linkbox__link" href=""> S’inscrire</a>
+    <div class="linkBox">
+      <p class="linkBoxText">Pas encore de compte ?</p>
+      <ion-button class="linkBoxButton" (click)="redirectRegister()"
+        >S'inscrire</ion-button
+      >
     </div>
   </div>
 </ion-content>

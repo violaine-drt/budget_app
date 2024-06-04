@@ -9,8 +9,8 @@ describe('MainButtonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainButtonComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [MainButtonComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainButtonComponent);

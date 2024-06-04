@@ -70,23 +70,27 @@ ion-content {
 .input-fill-outline.sc-ion-input-md-h {
   --border-color: var(--ion-color-lightcream-shade);
 }
-
-.linkbox {
+.linkBox {
   display: flex;
   position: relative;
   width: 100%;
   max-width: 550px;
   align-items: center;
   justify-content: center;
+}
+.linkBoxText {
+  color: var(--ion-color-dark);
+  margin-right: 0px;
+}
 
-  &__text {
-    color: var(--ion-color-dark);
-    margin-right: 4px;
-  }
-  &__link {
-    text-decoration: none;
-    font-family: "Urbanist-Bold";
-  }
+.linkBoxButton {
+  text-decoration: none;
+  font-family: "Urbanist-Bold";
+  text-transform: none;
+  --color: var(--ion-color-primary);
+  font-size: medium;
+  --box-shadow: none;
+  --background: none;
 }
 
 .titles-display {
