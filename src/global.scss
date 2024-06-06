@@ -58,6 +58,9 @@ ion-content {
     --highlight-color-focused: var(--ion-color-lightcream-shade);
     --border-color: var(--ion-color-lightcream-shade);
   }
+  .input-fill-outline.sc-ion-input-md-h {
+    --border-color: var(--ion-color-lightcream-shade);
+  }
 
   .sublink {
     position: absolute;
@@ -67,9 +70,7 @@ ion-content {
     text-decoration: none;
   }
 }
-.input-fill-outline.sc-ion-input-md-h {
-  --border-color: var(--ion-color-lightcream-shade);
-}
+
 .linkBox {
   display: flex;
   position: relative;

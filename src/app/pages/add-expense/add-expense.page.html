@@ -18,6 +18,8 @@
             fill="outline"
             placeholder="Nom"
             class="custom"
+          >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon
           ></ion-input>
 
           <ion-input
@@ -27,24 +29,31 @@
             placeholder="Client"
             class="custom"
           >
-            <ion-icon slot="end" name="star-outline" color="warning"></ion-icon>
           </ion-input>
-          <ion-input
-            aria-label="category input"
-            type="number"
-            fill="outline"
-            placeholder="Montant"
-            class="custom"
-          >
-          </ion-input>
+
           <ion-input
             aria-label="Expense amount input"
+            [min]="0"
             type="number"
             fill="outline"
             placeholder="Montant"
             class="custom"
           >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon>
           </ion-input>
+
+          <ion-select
+            aria-label="Catégorie"
+            interface="popover"
+            placeholder=""
+            label="Catégorie"
+          >
+            <ion-select-option value="logement">Logement</ion-select-option>
+            <ion-select-option value="alimentaire"
+              >Alimentaire</ion-select-option
+            >
+            <ion-select-option value="achats">Achats</ion-select-option>
+          </ion-select>
         </div>
         <app-main-button
           class="main-button"
