@@ -49,6 +49,10 @@ const routes: Routes = [
         (m) => m.HomepagePageModule
       ),
   },
+  {
+    path: 'add-expense',
+    loadChildren: () => import('./pages/add-expense/add-expense.module').then( m => m.AddExpensePageModule)
+  },
 ];
 
 @NgModule({

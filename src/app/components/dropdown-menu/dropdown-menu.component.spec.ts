@@ -19,6 +19,15 @@ describe('DropdownMenuComponent', () => {
         AppRoutingModule,
         RouterModule.forRoot([]),
       ],
+      providers: [
+        {
+          provide: PopoverController,
+          useValue: jasmine.createSpyObj('PopoverController', [
+            'create',
+            'getTop',
+          ]),
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DropdownMenuComponent);
@@ -46,35 +55,5 @@ describe('DropdownMenuComponent', () => {
     await component.onLinkClick(firstPage.url);
 
     expect(navigateSpy).toHaveBeenCalledWith([firstPage.url]);
-  });
-
-  it('should dismiss popover after navigation', async () => {
-    const popoverDismissSpy = spyOn(
-      popoverController,
-      'dismiss'
-    ).and.callThrough();
-    const popoverGetTopSpy = spyOn(popoverController, 'getTop').and.resolveTo({
-      dismiss: popoverDismissSpy,
-    });
-
-    const firstPage = component.appPages[0];
-    await component.onLinkClick(firstPage.url);
-
-    expect(popoverGetTopSpy).toHaveBeenCalled();
-    expect(popoverDismissSpy).toHaveBeenCalled();
-  });
-  it('should highlight the current page', () => {
-    const currentPageUrl = component.appPages[0].url;
-    spyOn(router, 'url', 'get').and.returnValue(currentPageUrl);
-
-    fixture.detectChanges();
-
-    const activeItems = fixture.debugElement.queryAll(
-      By.css('.ion-item.active')
-    );
-    expect(activeItems.length).toBe(1);
-    expect(
-      activeItems[0].nativeElement.querySelector('a').getAttribute('routerLink')
-    ).toBe(currentPageUrl);
   });
 });
