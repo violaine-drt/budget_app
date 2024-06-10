@@ -47,12 +47,31 @@
             interface="popover"
             placeholder=""
             label="Catégorie"
+            fill="outline"
           >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon>
+
             <ion-select-option value="logement">Logement</ion-select-option>
             <ion-select-option value="alimentaire"
               >Alimentaire</ion-select-option
             >
             <ion-select-option value="achats">Achats</ion-select-option>
+          </ion-select>
+
+          <ion-select
+            aria-label="Sous-catégorie"
+            interface="popover"
+            placeholder=""
+            label="Sous-catégorie"
+            fill="outline"
+          >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon>
+
+            <ion-select-option value="loyer">Loyer</ion-select-option>
+            <ion-select-option value="charges">Charges</ion-select-option>
+            <ion-select-option value="électricité"
+              >Electricité</ion-select-option
+            >
           </ion-select>
         </div>
         <app-main-button
