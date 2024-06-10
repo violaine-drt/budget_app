@@ -85,6 +85,23 @@ li {
     border-color: transparent;
   }
 }
+.ion-datetime {
+  --background: var(--ion-color-lightcream);
+}
+
+.date-container {
+  justify-content: center;
+  height: 15%;
+  min-height: 50px;
+  width: 80%;
+  max-width: 600px;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  position: relative;
+  --ion-item-background: var(--ion-color-lightcream);
+  --color: var(--ion-color-dark);
+}
 
 .homepage-content {
   color: var(--ion-color-lightcream);

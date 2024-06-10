@@ -5,68 +5,53 @@
         [buttonSolidColor]="'var(--ion-color-lightcream)'"
       ></app-dropdown-menu>
 
-      <h1 class="medium-title">Afficher mes dépenses et revenus par :</h1>
-      <div class="date-menu-wrapper">
-        <!-- <ul>
-          <li>
-            <a class="tab-link">jour</a>
-          </li>
-          <li>
-            <a class="tab-link">semaine</a>
-          </li>
-          <li>
-            <a class="tab-link">mois</a>
-          </li>
-          <li>
-            <a class="tab-link">année</a>
-          </li>
-        </ul> -->
-      </div>
+      <h1 class="medium-title">Afficher mes dépenses et revenus par période</h1>
+      <div class="date-menu-wrapper"></div>
     </div>
   </div>
   <div class="homepage-content">
-    <ion-content>
-      <ion-item>
-        <ion-label>Date de début</ion-label>
-        <ion-datetime-button datetime="datetimeStart"></ion-datetime-button>
-      </ion-item>
-      <ion-item>
-        <ion-label>Date de fin</ion-label>
-        <ion-datetime-button datetime="datetimeEnd"></ion-datetime-button>
-      </ion-item>
+    <ion-item class="date-container">
+      <ion-label>Du :</ion-label>
+      <ion-datetime-button datetime="datetimeStart"></ion-datetime-button>
+      <!-- </ion-item> -->
+      <!-- <ion-item class="date-container"> -->
+      <ion-label>Au: </ion-label>
+      <ion-datetime-button datetime="datetimeEnd"></ion-datetime-button>
+    </ion-item>
 
-      <ion-button expand="full" (click)="submitDates()">Valider</ion-button>
+    <ion-button expand="full" (click)="submitDates()">Valider</ion-button>
 
-      <ion-modal
-        [keepContentsMounted]="true"
-        [isOpen]="showStartModal"
-        (didDismiss)="closeStartModal()"
-      >
-        <ng-template>
-          <ion-datetime
-            id="datetimeStart"
-            presentation="date-time"
-            [(ngModel)]="dateStart"
-            (ionChange)="updateDateStart($event)"
-          ></ion-datetime>
-        </ng-template>
-      </ion-modal>
+    <ion-modal
+      [keepContentsMounted]="true"
+      [isOpen]="showStartModal"
+      (didDismiss)="closeStartModal()"
+    >
+      <ng-template>
+        <ion-datetime
+          id="datetimeStart"
+          presentation="date"
+          min="1997"
+          max="2010"
+          [(ngModel)]="dateStart"
+          (ionChange)="updateDateStart($event)"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
 
-      <ion-modal
-        [keepContentsMounted]="true"
-        [isOpen]="showEndModal"
-        (didDismiss)="closeEndModal()"
-      >
-        <ng-template>
-          <ion-datetime
-            id="datetimeEnd"
-            presentation="date-time"
-            [(ngModel)]="dateEnd"
-            (ionChange)="updateDateEnd($event)"
-          ></ion-datetime>
-        </ng-template>
-      </ion-modal>
-    </ion-content>
+    <ion-modal
+      [keepContentsMounted]="true"
+      [isOpen]="showEndModal"
+      (didDismiss)="closeEndModal()"
+    >
+      <ng-template>
+        <ion-datetime
+          id="datetimeEnd"
+          presentation="date"
+          [(ngModel)]="dateEnd"
+          (ionChange)="updateDateEnd($event)"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
 
     <h3 class="small-subtitle">[Date selon menu]</h3>
 
