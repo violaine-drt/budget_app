@@ -1,0 +1,84 @@
+<ion-content [fullscreen]="true">
+  <div class="homepage-wrapper">
+    <div class="homepage-header">
+      <app-dropdown-menu
+        [buttonSolidColor]="'var(--ion-color-lightcream)'"
+      ></app-dropdown-menu>
+      <h1 class="medium-title">Nouveau revenu</h1>
+    </div>
+  </div>
+  <div class="homepage-content">
+    <ion-content [fullscreen]="true">
+      <div class="page-wrapper">
+        <div class="input-container">
+          <ion-input
+            class="required"
+            aria-label="Name input"
+            type="text"
+            fill="outline"
+            placeholder="Nom"
+            class="custom"
+          >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon
+          ></ion-input>
+
+          <ion-input
+            aria-label="Client input"
+            type="text"
+            fill="outline"
+            placeholder="Client"
+            class="custom"
+          >
+          </ion-input>
+
+          <ion-input
+            aria-label="Expense amount input"
+            [min]="0"
+            type="number"
+            fill="outline"
+            placeholder="Montant"
+            class="custom"
+          >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon>
+          </ion-input>
+
+          <ion-select
+            aria-label="Catégorie"
+            interface="popover"
+            placeholder=""
+            label="Catégorie"
+            fill="outline"
+          >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon>
+
+            <ion-select-option value="logement">Logement</ion-select-option>
+            <ion-select-option value="alimentaire"
+              >Alimentaire</ion-select-option
+            >
+            <ion-select-option value="achats">Achats</ion-select-option>
+          </ion-select>
+
+          <ion-select
+            aria-label="Sous-catégorie"
+            interface="popover"
+            placeholder=""
+            label="Sous-catégorie"
+            fill="outline"
+          >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon>
+
+            <ion-select-option value="loyer">Loyer</ion-select-option>
+            <ion-select-option value="charges">Charges</ion-select-option>
+            <ion-select-option value="électricité"
+              >Electricité</ion-select-option
+            >
+          </ion-select>
+        </div>
+        <app-main-button
+          class="main-button"
+          [buttonTitle]="'Envoyer'"
+        ></app-main-button>
+      </div>
+    </ion-content>
+  </div>
+</ion-content>

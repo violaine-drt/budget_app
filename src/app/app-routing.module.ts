@@ -53,6 +53,10 @@ const routes: Routes = [
     path: 'add-expense',
     loadChildren: () => import('./pages/add-expense/add-expense.module').then( m => m.AddExpensePageModule)
   },
+  {
+    path: 'add-income',
+    loadChildren: () => import('./pages/add-income/add-income.module').then( m => m.AddIncomePageModule)
+  },
 ];
 
 @NgModule({

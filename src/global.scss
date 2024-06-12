@@ -17,6 +17,11 @@ ion-content {
   font-family: "Urbanist", sans-serif;
   background: var(--ion-color-lightcream);
 }
+:root {
+  .label.radio-wrapper {
+    color: red;
+  }
+}
 
 .login-page-logo {
   width: 25%;
