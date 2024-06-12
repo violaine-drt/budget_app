@@ -85,24 +85,57 @@ li {
     border-color: transparent;
   }
 }
-.ion-datetime {
-  --background: var(--ion-color-lightcream);
-}
 
 .date-container {
+  --border: none;
   justify-content: center;
   height: 15%;
   min-height: 50px;
-  width: 80%;
+  width: 90%;
   max-width: 600px;
   overflow: hidden;
   align-items: center;
   display: flex;
   position: relative;
-  --ion-item-background: var(--ion-color-lightcream);
-  --color: var(--ion-color-dark);
+  font-family: Urbanist;
+  --ion-item-background: transparent;
+  --inner-padding-end: 0px;
 }
-
+ion-datetime {
+  font-family: "Urbanist";
+  background-color: var(--ion-color-lightcream);
+}
+ion-datetime-button::part(native) {
+  background: var(--ion-color-lightcream);
+  color: var(--ion-color-primary);
+  font-family: "Urbanist-SemiBold";
+}
+.select-dates {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  max-width: 360px;
+}
+ion-item::part(native) {
+  width: 100%;
+  padding-right: 5%px;
+}
+.from-to {
+  --color: var(--ion-color-lightcream);
+  font-family: "Urbanist-SemiBold";
+  width: fit-content;
+}
+.send-date-button {
+  color: var(--ion-color-lightcream);
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  width: fit-content;
+}
+.send-date-icon {
+  margin: 0;
+  padding: 0;
+}
 .homepage-content {
   color: var(--ion-color-lightcream);
   position: absolute;

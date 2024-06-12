@@ -5,55 +5,70 @@
         [buttonSolidColor]="'var(--ion-color-lightcream)'"
       ></app-dropdown-menu>
 
-      <h1 class="medium-title">Afficher mes dépenses et revenus par période</h1>
-      <div class="date-menu-wrapper"></div>
+      <h1 class="medium-title">
+        Afficher mes dépenses et revenus par période :
+      </h1>
+      <div class="select-dates">
+        <ion-item lines="none" class="date-container">
+          <ion-label class="from-to">Du :</ion-label>
+          <ion-datetime-button datetime="datetimeStart"></ion-datetime-button>
+        </ion-item>
+        <ion-item lines="none" class="date-container">
+          <ion-label class="from-to">Au : </ion-label>
+          <ion-datetime-button datetime="datetimeEnd"></ion-datetime-button>
+        </ion-item>
+        <ion-button
+          class="send-date-button"
+          expand="full"
+          (click)="submitDates()"
+          fill="clear"
+          ><ion-icon
+            class="send-date-icon"
+            slot="icon-only"
+            name="checkmark-circle"
+            style="zoom: 1.3"
+          ></ion-icon
+        ></ion-button>
+      </div>
+
+      <ion-modal
+        [keepContentsMounted]="true"
+        [isOpen]="showStartModal"
+        (didDismiss)="closeStartModal()"
+      >
+        <ng-template>
+          <ion-datetime
+            id="datetimeStart"
+            presentation="date"
+            min="2000"
+            max="dateStart"
+            [(ngModel)]="dateStart"
+            (ionChange)="updateDateStart($event)"
+          >
+            <span slot="title">Début de la période</span></ion-datetime
+          >
+        </ng-template>
+      </ion-modal>
+
+      <ion-modal
+        [keepContentsMounted]="true"
+        [isOpen]="showEndModal"
+        (didDismiss)="closeEndModal()"
+      >
+        <ng-template>
+          <ion-datetime
+            id="datetimeEnd"
+            presentation="date"
+            [(ngModel)]="dateEnd"
+            (ionChange)="updateDateEnd($event)"
+            ><span slot="title">Fin de la période</span></ion-datetime
+          >
+        </ng-template>
+      </ion-modal>
     </div>
   </div>
   <div class="homepage-content">
-    <ion-item class="date-container">
-      <ion-label>Du :</ion-label>
-      <ion-datetime-button datetime="datetimeStart"></ion-datetime-button>
-      <!-- </ion-item> -->
-      <!-- <ion-item class="date-container"> -->
-      <ion-label>Au: </ion-label>
-      <ion-datetime-button datetime="datetimeEnd"></ion-datetime-button>
-    </ion-item>
-
-    <ion-button expand="full" (click)="submitDates()">Valider</ion-button>
-
-    <ion-modal
-      [keepContentsMounted]="true"
-      [isOpen]="showStartModal"
-      (didDismiss)="closeStartModal()"
-    >
-      <ng-template>
-        <ion-datetime
-          id="datetimeStart"
-          presentation="date"
-          min="1997"
-          max="2010"
-          [(ngModel)]="dateStart"
-          (ionChange)="updateDateStart($event)"
-        ></ion-datetime>
-      </ng-template>
-    </ion-modal>
-
-    <ion-modal
-      [keepContentsMounted]="true"
-      [isOpen]="showEndModal"
-      (didDismiss)="closeEndModal()"
-    >
-      <ng-template>
-        <ion-datetime
-          id="datetimeEnd"
-          presentation="date"
-          [(ngModel)]="dateEnd"
-          (ionChange)="updateDateEnd($event)"
-        ></ion-datetime>
-      </ng-template>
-    </ion-modal>
-
-    <h3 class="small-subtitle">[Date selon menu]</h3>
+    <!-- <h3 class="small-subtitle">[Date selon menu]</h3> -->
 
     <ion-card class="expense-card">
       <ion-row class="ion-align-items-center">
