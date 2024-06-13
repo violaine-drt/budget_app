@@ -31,6 +31,20 @@
           >
           </ion-input>
 
+          <!-- <ion-item> -->
+          <ion-input
+            aria-label="Name input"
+            id="date"
+            fill="outline"
+            placeholder="Date"
+            class="custom"
+          ></ion-input>
+          <ion-popover trigger="date" size="cover">
+            <ng-template>
+              <ion-datetime presentation="date" min="2000"></ion-datetime>
+            </ng-template>
+          </ion-popover>
+          <!-- </ion-item> -->
           <ion-input
             aria-label="Expense amount input"
             [min]="0"
