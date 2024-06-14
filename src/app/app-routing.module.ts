@@ -57,6 +57,10 @@ const routes: Routes = [
     path: 'add-income',
     loadChildren: () => import('./pages/add-income/add-income.module').then( m => m.AddIncomePageModule)
   },
+  {
+    path: 'history',
+    loadChildren: () => import('./pages/history/history.module').then( m => m.HistoryPageModule)
+  },
 ];
 
 @NgModule({

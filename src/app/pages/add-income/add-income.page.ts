@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AddIncomePage implements OnInit {
   @Input() sort: string = '../../assets/icon/asterisk.svg';
+  date: Date = new Date();
 
   constructor() {}
 

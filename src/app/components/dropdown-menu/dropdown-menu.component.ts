@@ -16,14 +16,14 @@ export class DropdownMenuComponent implements OnInit {
   @Input() buttonSolidColor: string = '--ion-color-lightcream';
   @Input() menuSide: string = 'bottom-start';
   public appPages = [
-    { title: 'Accueil', url: '/homepage', icon: 'mail' },
-    { title: 'Nouveau revenu', url: '/homepage', icon: 'mail' },
-    { title: 'Nouvelle dépense', url: '/homepage', icon: 'paper-plane' },
-    { title: 'Mon historique', url: '/homepage', icon: 'heart' },
-    { title: 'Mon analyse', url: '/homepage', icon: 'trash' },
-    { title: 'Catégories', url: '/homepage', icon: 'archive' },
-    { title: 'Mon compte', url: '/homepage', icon: 'archive' },
-    { title: 'Se déconnecter', url: '/login', icon: 'warning' },
+    { title: 'Accueil', url: '/homepage' },
+    { title: 'Nouveau revenu', url: '/add-income' },
+    { title: 'Nouvelle dépense', url: '/add-expense' },
+    { title: 'Mon historique', url: '/history' },
+    { title: 'Mon analyse', url: '/homepage' },
+    { title: 'Catégories', url: '/homepage' },
+    { title: 'Mon compte', url: '/homepage' },
+    { title: 'Se déconnecter', url: '/login' },
   ];
   constructor(
     private router: Router,

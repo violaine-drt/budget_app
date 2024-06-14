@@ -31,20 +31,29 @@
           >
           </ion-input>
 
-          <!-- <ion-item> -->
           <ion-input
+            value="{{ date | date: 'dd/MM/yyyy' }}"
             aria-label="Name input"
             id="date"
+            label="Date :"
             fill="outline"
             placeholder="Date"
             class="custom"
+          >
+            <ion-icon name="required-field" slot="end" [src]="sort"></ion-icon
           ></ion-input>
-          <ion-popover trigger="date" size="cover">
+          <ion-popover trigger="date">
             <ng-template>
-              <ion-datetime presentation="date" min="2000"></ion-datetime>
+              <ion-datetime
+                presentation="date"
+                min="2000"
+                [(ngModel)]="date"
+                locale="fr-FR"
+                ><span slot="title">Sélectionnez la date</span></ion-datetime
+              >
             </ng-template>
           </ion-popover>
-          <!-- </ion-item> -->
+
           <ion-input
             aria-label="Expense amount input"
             [min]="0"

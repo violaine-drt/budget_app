@@ -1,0 +1,103 @@
+<ion-content [fullscreen]="true">
+  <div class="homepage-wrapper">
+    <div class="homepage-header">
+      <app-dropdown-menu
+        [buttonSolidColor]="'var(--ion-color-primary)'"
+      ></app-dropdown-menu>
+
+      <h1 class="medium-title">Mon historique :</h1>
+      <div class="select-dates">
+        <ion-item lines="none" class="date-container">
+          <ion-label class="from-to">Du :</ion-label>
+          <ion-datetime-button datetime="datetimeStart"></ion-datetime-button>
+        </ion-item>
+        <ion-item lines="none" class="date-container">
+          <ion-label class="from-to">Au : </ion-label>
+          <ion-datetime-button datetime="datetimeEnd"></ion-datetime-button>
+        </ion-item>
+        <ion-button
+          class="send-date-button"
+          expand="full"
+          (click)="submitDates()"
+          fill="clear"
+          ><ion-icon
+            class="send-date-icon"
+            slot="icon-only"
+            name="checkmark-circle"
+            style="zoom: 1.3"
+          ></ion-icon
+        ></ion-button>
+      </div>
+
+      <ion-modal
+        [keepContentsMounted]="true"
+        [isOpen]="showStartModal"
+        (didDismiss)="closeStartModal()"
+      >
+        <ng-template>
+          <ion-datetime
+            id="datetimeStart"
+            presentation="date"
+            min="2000"
+            max="dateStart"
+            [(ngModel)]="dateStart"
+            (ionChange)="updateDateStart($event)"
+          >
+            <span slot="title">Début de la période</span></ion-datetime
+          >
+        </ng-template>
+      </ion-modal>
+
+      <ion-modal
+        [keepContentsMounted]="true"
+        [isOpen]="showEndModal"
+        (didDismiss)="closeEndModal()"
+      >
+        <ng-template>
+          <ion-datetime
+            id="datetimeEnd"
+            presentation="date"
+            [(ngModel)]="dateEnd"
+            (ionChange)="updateDateEnd($event)"
+            ><span slot="title">Fin de la période</span></ion-datetime
+          >
+        </ng-template>
+      </ion-modal>
+    </div>
+  </div>
+  <div class="homepage-content">
+    <ion-list class="history-list">
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label> Section A </ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-label>A1</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>A2</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>A3</ion-label>
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label> Section B </ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-label>B1</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>B2</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>B3</ion-label>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </div>
+</ion-content>
