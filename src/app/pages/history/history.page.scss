@@ -6,7 +6,7 @@
   width: 100%;
   align-items: center;
   justify-content: flex-start;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
 }
 
@@ -91,6 +91,8 @@ ion-item::part(native) {
 .homepage-content {
   background-color: var(--ion-color-lightcream);
   position: absolute;
+  overflow-y: auto;
+  flex: 1;
   top: 20%;
   height: 80%;
   width: 100%;
