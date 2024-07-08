@@ -9,12 +9,12 @@ import { PopoverController } from '@ionic/angular';
 export class DropdownMenuComponent implements OnInit {
   @Input() menuPosition: string = 'top-left-dropdown-menu';
   @Input() menuClass: string = 'menu';
-  @Input() trigger: string = 'bottom-start';
+  @Input() triggerId: string = 'default-button';
   @Input() side: string = 'bottom';
   @Input() size: string = 'auto';
   @Input() alignment: string = 'start';
   @Input() buttonSolidColor: string = '--ion-color-lightcream';
-  @Input() menuSide: string = 'bottom-start';
+  @Input() buttonId: string = 'default-button';
   public appPages = [
     { title: 'Accueil', url: '/homepage' },
     { title: 'Nouveau revenu', url: '/add-income' },
