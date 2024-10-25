@@ -1,7 +1,0 @@
-{
-  "name": "budget-app-front",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

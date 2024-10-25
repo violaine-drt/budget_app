@@ -1,5 +1,7 @@
 {
-  "name": "New Ionic App",
-  "integrations": {},
+  "name": "budget-app-front",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
