@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Getter
@@ -14,13 +15,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "subcategories")
+public class Subcategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "category_name", nullable = false, unique = true)
+    @Column(name = "subcategory_name", nullable = false)
     private String categoryName;
 
     @Column(name = "color_code", nullable = false, length = 7)
@@ -29,13 +30,9 @@ public class Category {
     @Column(name = "is_flagged", nullable = false)
     private Boolean isFlagged;
 
-    //if colomn is default, user_id should be set to null
-    @Column(name = "is_default", nullable = false)
-    private Boolean isDefault;
-
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;

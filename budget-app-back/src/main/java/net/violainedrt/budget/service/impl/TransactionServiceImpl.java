@@ -2,14 +2,9 @@ package net.violainedrt.budget.service.impl;
 
 import lombok.AllArgsConstructor;
 import net.violainedrt.budget.dto.TransactionDto;
-import net.violainedrt.budget.dto.TypeDto;
-import net.violainedrt.budget.entity.Category;
 import net.violainedrt.budget.entity.Transaction;
-import net.violainedrt.budget.entity.Type;
 import net.violainedrt.budget.exception.ResourceNotFoundException;
-import net.violainedrt.budget.mapper.CategoryMapper;
 import net.violainedrt.budget.mapper.TransactionMapper;
-import net.violainedrt.budget.mapper.TypeMapper;
 import net.violainedrt.budget.repository.TransactionRepository;
 import net.violainedrt.budget.service.TransactionService;
 import org.springframework.stereotype.Service;
@@ -21,6 +16,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
     private TransactionRepository transactionRepository;
+
     @Override
     public TransactionDto createTransaction(TransactionDto transactionDto) {
         Transaction transaction = TransactionMapper.mapToTransaction(transactionDto);
@@ -45,7 +41,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void deleteTransaction(Long transactionId) {
         Transaction transaction = transactionRepository.findById(transactionId).orElseThrow(
-                () -> new ResourceNotFoundException("Transaction does not exist with given id: "+transactionId)
+                () -> new ResourceNotFoundException("Transaction does not exist with given id: " + transactionId)
         );
         transactionRepository.deleteById(transactionId);
     }

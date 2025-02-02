@@ -5,8 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.violainedrt.budget.enums.FinancialType;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,31 +19,41 @@ import java.util.Date;
 @Table(name = "transactions")
 public class Transaction {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "description")
     private String description;
 
-    private String supplier;
+    @Column(name = "counterparty")
+    private String counterparty;
 
-    @Column(nullable = false)
-    private Double amount;
+    @Column(name = "amount", nullable = false)
+    private BigDecimal amount;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date date;
+    @Column(name = "date", nullable = false)
+    private LocalDateTime dateTime;
 
-    @ManyToOne
-    @JoinColumn(name= "category_id", referencedColumnName = "id", nullable = false)
-    private Category category; //définit clé étrangère vers Category
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name= "type_id", referencedColumnName = "id", nullable = false)
-    private Type type;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "financial_type", nullable = false)
+    private FinancialType financialType;
 
     @ManyToOne
-    @JoinColumn(name= "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "subcategory", referencedColumnName = "id")
+    private Subcategory subcategory;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
+
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
 
 }

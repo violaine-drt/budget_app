@@ -4,28 +4,35 @@ import net.violainedrt.budget.dto.TransactionDto;
 import net.violainedrt.budget.entity.Transaction;
 
 public class TransactionMapper {
-    public static TransactionDto mapToTransactionDto(Transaction transaction){
+    public static TransactionDto mapToTransactionDto(Transaction transaction) {
         return new TransactionDto(
                 transaction.getId(),
                 transaction.getDescription(),
-                transaction.getSupplier(),
+                transaction.getCounterparty(),
                 transaction.getAmount(),
-                transaction.getDate(),
+                transaction.getDateTime(),
+                transaction.getFinancialType(),
                 transaction.getCategory(),
-                transaction.getType(),
-                transaction.getUser()
+                transaction.getSubcategory(),
+                transaction.getUser(),
+                transaction.getCreatedAt(),
+                transaction.getUpdatedAt()
         );
     }
-    public static Transaction mapToTransaction(TransactionDto transactionDto){
+
+    public static Transaction mapToTransaction(TransactionDto transactionDto) {
         return new Transaction(
                 transactionDto.getId(),
                 transactionDto.getDescription(),
-                transactionDto.getSupplier(),
+                transactionDto.getCounterparty(),
                 transactionDto.getAmount(),
-                transactionDto.getDate(),
+                transactionDto.getDateTime(),
+                transactionDto.getFinancialType(),
                 transactionDto.getCategory(),
-                transactionDto.getType(),
-                transactionDto.getUser()
+                transactionDto.getSubcategory(),
+                transactionDto.getUser(),
+                transactionDto.getCreatedAt(),
+                transactionDto.getUpdatedAt()
         );
     }
 

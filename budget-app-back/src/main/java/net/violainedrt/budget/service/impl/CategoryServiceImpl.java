@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 public class CategoryServiceImpl implements CategoryService {
 
     private CategoryRepository categoryRepository;
+
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
         Category category = CategoryMapper.mapToCategory(categoryDto);
@@ -46,11 +47,12 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto updateCategory(Long categoryId, CategoryDto updateCategory) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(
-                () -> new ResourceNotFoundException("Category does not exist with given id: "+categoryId)
+                () -> new ResourceNotFoundException("Category does not exist with given id: " + categoryId)
         );
-        category.setName(updateCategory.getName());
-        category.setUpdatedAt(new Date());
-        category.setParent(updateCategory.getParent());
+        category.setCategoryName(updateCategory.getCategoryName());
+        category.setColorCode(updateCategory.getColorCode());
+        category.setIsFlagged(updateCategory.getIsFlagged());
+        category.setIsDefault(false);
         Category updatedCategoryObj = categoryRepository.save(category);
         return CategoryMapper.mapToCategoryDto(updatedCategoryObj);
     }
@@ -58,7 +60,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteCategory(Long categoryId) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(
-                () -> new ResourceNotFoundException("Category does not exist with given id: "+categoryId)
+                () -> new ResourceNotFoundException("Category does not exist with given id: " + categoryId)
         );
         categoryRepository.deleteById(categoryId);
     }

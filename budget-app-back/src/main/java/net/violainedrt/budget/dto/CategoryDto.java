@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.violainedrt.budget.entity.Category;
-import net.violainedrt.budget.entity.Transaction;
 
-import java.util.Date;
-import java.util.List;
+import net.violainedrt.budget.entity.User;
+
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -16,10 +16,11 @@ import java.util.List;
 @AllArgsConstructor
 public class CategoryDto {
     private Long id;
-    private String name;
-    private Category parent;
-    private List<Category> children;
-    private List<Transaction> transactions;
-    private Date createdAt;
-    private Date updatedAt;
+    private String categoryName;
+    private String colorCode;
+    private Boolean isFlagged;
+    private Boolean isDefault;
+    private User user;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

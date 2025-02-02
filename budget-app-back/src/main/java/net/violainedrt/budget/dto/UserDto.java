@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.violainedrt.budget.entity.Transaction;
 
-import java.util.List;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -16,5 +18,9 @@ public class UserDto {
     private Long id;
     private String name;
     private String email;
-    private List<Transaction> transactions;
+    private String password;
+    private BigDecimal userBalance;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private LocalDateTime lastLogin;
 }
