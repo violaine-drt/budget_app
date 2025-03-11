@@ -18,6 +18,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     // Build Add Category REST API
+    //@todo changer construction objet category
     @PostMapping
     public ResponseEntity<CategoryDto> createCategory(@RequestBody net.violainedrt.budget.application.dto.CategoryDto categoryDto) {
         categoryDto.setCreatedAt(LocalDateTime.now());
