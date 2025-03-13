@@ -2,6 +2,7 @@ package net.violainedrt.budget.application.controller;
 
 
 import lombok.AllArgsConstructor;
+import net.violainedrt.budget.application.dto.TransactionDto;
 import net.violainedrt.budget.domain.service.transaction.TransactionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,22 +17,22 @@ public class TransactionController {
     private TransactionService transactionService;
     // Build Add Transaction REST API
     @PostMapping
-    public ResponseEntity<net.violainedrt.budget.application.dto.TransactionDto> createTransaction(@RequestBody net.violainedrt.budget.application.dto.TransactionDto transactionDto){
-        net.violainedrt.budget.application.dto.TransactionDto savedTransaction = transactionService.createTransaction(transactionDto);
+    public ResponseEntity<TransactionDto> createTransaction(@RequestBody TransactionDto transactionDto){
+        TransactionDto savedTransaction = transactionService.createTransaction(transactionDto);
         return new ResponseEntity<>(savedTransaction, HttpStatus.CREATED);
     }
 
     //Build Get Transaction REST API
     @GetMapping("{id}")
-    public ResponseEntity<net.violainedrt.budget.application.dto.TransactionDto> getTransactionById(@PathVariable("id") Long transactionId){
-        net.violainedrt.budget.application.dto.TransactionDto transactionDto = transactionService.getTransactionById(transactionId);
+    public ResponseEntity<TransactionDto> getTransactionById(@PathVariable("id") Long transactionId){
+        TransactionDto transactionDto = transactionService.getTransactionById(transactionId);
         return ResponseEntity.ok(transactionDto);
     }
 
     //Build Get All transactions REST API
     @GetMapping
-    public ResponseEntity<List<net.violainedrt.budget.application.dto.TransactionDto>> getAllTransactions(){
-        List<net.violainedrt.budget.application.dto.TransactionDto> transactions = transactionService.getAllTransactions();
+    public ResponseEntity<List<TransactionDto>> getAllTransactions(){
+        List<TransactionDto> transactions = transactionService.getAllTransactions();
         return ResponseEntity.ok(transactions);
     }
 

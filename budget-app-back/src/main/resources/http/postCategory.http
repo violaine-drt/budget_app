@@ -1,0 +1,5 @@
+POST  {{host}}/api/categories
+Content-Type: application/json
+
+ {"id":null, "name":"Alimentaire", "colorCode":"#FF69B4", "isFlagged": false, "isDefault": false, "userId": 1}
+

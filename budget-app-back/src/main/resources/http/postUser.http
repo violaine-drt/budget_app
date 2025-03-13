@@ -1,0 +1,13 @@
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "id": null,
+  "name": "Benoît Oiseau",
+  "email": "benoit.oiseau@example.com",
+  "password": "password123",
+  "userBalance": 1000.00,
+  "createdAt": "2025-03-13T12:00:00",
+  "updatedAt": "2025-03-13T12:00:00",
+  "lastLogin": "2025-03-13T12:00:00"
+  }

@@ -31,7 +31,7 @@ public class Subcategory {
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private net.violainedrt.budget.infrastructure.entity.Category category;
+    private Category category;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;

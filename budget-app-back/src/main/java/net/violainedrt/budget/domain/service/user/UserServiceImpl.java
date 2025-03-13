@@ -1,6 +1,8 @@
 package net.violainedrt.budget.domain.service.user;
 
+import jakarta.persistence.*;
 import lombok.RequiredArgsConstructor;
+import net.violainedrt.budget.application.dto.CategoryDto;
 import net.violainedrt.budget.application.dto.UserDto;
 import net.violainedrt.budget.domain.mapper.UserMapper;
 import net.violainedrt.budget.infrastructure.entity.User;
@@ -8,6 +10,8 @@ import net.violainedrt.budget.common.exception.ResourceNotFoundException;
 import net.violainedrt.budget.infrastructure.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +25,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto createUser(UserDto userDto) {
-        User user = userMapper.toUserEntity(userDto);
+        UserDto userToSave = userDto.builder()
+                .id(userDto.id())
+                .name(userDto.name())
+                .email(userDto.email())
+                .password(userDto.password())
+                .userBalance(userDto.userBalance())
+                .lastLogin(LocalDateTime.now())
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
+
+        User user = userMapper.toUserEntity(userToSave);
         User savedUser = userRepository.save(user);
         return userMapper.toUserDto(savedUser);
     }

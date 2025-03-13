@@ -8,22 +8,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/categories") //indique que toutes les routes débuterons par ce segment
 public class CategoryController {
     private CategoryService categoryService;
 
     // Build Add Category REST API
     //@todo changer construction objet category
     @PostMapping
-    public ResponseEntity<CategoryDto> createCategory(@RequestBody net.violainedrt.budget.application.dto.CategoryDto categoryDto) {
-        categoryDto.setCreatedAt(LocalDateTime.now());
-        categoryDto.setUpdatedAt(LocalDateTime.now());
-        net.violainedrt.budget.application.dto.CategoryDto savedCategory = categoryService.createCategory(categoryDto);
+    public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto) {
+        CategoryDto savedCategory = categoryService.createCategory(categoryDto);
         return new ResponseEntity<>(savedCategory, HttpStatus.CREATED);
 
     }
@@ -31,7 +28,7 @@ public class CategoryController {
     //Build Get Category REST API
     @GetMapping("{id}")
     public ResponseEntity<net.violainedrt.budget.application.dto.CategoryDto> getCategoryById(@PathVariable("id") Long categoryId) {
-        net.violainedrt.budget.application.dto.CategoryDto categoryDto = categoryService.getCategoryById(categoryId);
+        CategoryDto categoryDto = categoryService.getCategoryById(categoryId);
         return ResponseEntity.ok(categoryDto);
     }
 
@@ -44,9 +41,8 @@ public class CategoryController {
 
     //Build update Category REST API
     @PutMapping("{id}")
-    public ResponseEntity<net.violainedrt.budget.application.dto.CategoryDto> updateCategory(@PathVariable("id") Long categoryId,
-                                                                                             @RequestBody net.violainedrt.budget.application.dto.CategoryDto updatedCategory) {
-        net.violainedrt.budget.application.dto.CategoryDto categoryDto = categoryService.updateCategory(categoryId, updatedCategory);
+    public ResponseEntity<net.violainedrt.budget.application.dto.CategoryDto> updateCategory(@PathVariable("id") Long categoryId, @RequestBody CategoryDto updatedCategory) {
+        CategoryDto categoryDto = categoryService.updateCategory(categoryId, updatedCategory);
         return ResponseEntity.ok(categoryDto);
     }
 
