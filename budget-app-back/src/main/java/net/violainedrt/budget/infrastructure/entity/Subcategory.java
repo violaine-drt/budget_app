@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -33,9 +35,11 @@ public class Subcategory {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp  // Automatiquement généré lors de l'insertion
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false)
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 }

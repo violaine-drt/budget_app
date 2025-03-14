@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.violainedrt.budget.common.enums.FinancialType;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 
 import java.math.BigDecimal;
@@ -54,10 +56,12 @@ public class Transaction {
     @JoinColumn(name = "supplier", referencedColumnName = "id")
     private net.violainedrt.budget.infrastructure.entity.Supplier supplier;
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp  // Automatiquement généré lors de l'insertion
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false)
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 
 }

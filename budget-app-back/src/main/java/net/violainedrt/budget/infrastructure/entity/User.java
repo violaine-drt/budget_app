@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -33,11 +35,13 @@ public class User {
     @Column(name = "balance", nullable = false)
     private BigDecimal userBalance;
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp  // Automatiquement généré lors de l'insertion
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false)
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 
     @Column(name = "last_login")
     private LocalDateTime lastLogin;

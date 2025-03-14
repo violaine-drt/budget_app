@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.violainedrt.budget.common.enums.FinancialType;
 import net.violainedrt.budget.common.enums.Periodicity;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 
 import java.math.BigDecimal;
@@ -48,9 +50,11 @@ public class Goal {
     @JoinColumn(name = "subcategory_id", referencedColumnName = "id")
     private Subcategory subcategory;
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp  // Automatiquement généré lors de l'insertion
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false)
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 }

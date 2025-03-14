@@ -31,8 +31,6 @@ public class CategoryServiceImpl implements CategoryService {
                 .isDefault(categoryDto.isDefault())
                 .isFlagged(categoryDto.isFlagged())
                 .userId(categoryDto.userId())
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
                 .build();
         Category category = categoryMapper.toCategoryEntity(categoryToSave, userRepository);
         Category savedCategory = categoryRepository.save(category);
@@ -60,7 +58,6 @@ public class CategoryServiceImpl implements CategoryService {
         category.setColorCode(updateCategory.colorCode());
         category.setIsDefault(updateCategory.isDefault());
         category.setIsFlagged(updateCategory.isFlagged());
-        category.setUpdatedAt(LocalDateTime.now());
         Category updatedCategoryObj = categoryRepository.save(category);
         return categoryMapper.toCategoryDto(updatedCategoryObj);
     }

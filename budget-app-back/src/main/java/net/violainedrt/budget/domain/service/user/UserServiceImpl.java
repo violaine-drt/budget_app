@@ -32,8 +32,6 @@ public class UserServiceImpl implements UserService {
                 .password(userDto.password())
                 .userBalance(userDto.userBalance())
                 .lastLogin(LocalDateTime.now())
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
                 .build();
 
         User user = userMapper.toUserEntity(userToSave);
