@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
   "id": null,
-  "name": "Géraldine Chaton",
-  "email": "geraldine.chaton@example.com",
+  "name": "Héloïse Aiglefin",
+  "email": "heloise.aiglefin@example.com",
   "password": "password1234",
-  "userBalance": 2000.00
+  "userBalance": 3000.00
   }

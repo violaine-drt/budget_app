@@ -1,12 +1,13 @@
 package net.violainedrt.budget.infrastructure.entity;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.*;
 
 import java.time.LocalDateTime;
 
@@ -16,23 +17,28 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "subcategories")
+@Table(name = "subcategories", uniqueConstraints = { @UniqueConstraint(columnNames = {"name", "category_id"})})
 public class Subcategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @NotNull(message = "name is mandatory on subcategory entity")
+    @Column(name = "name", nullable = false, length = 150)
     private String name;
 
+    @NotNull(message = "colorCode is mandatory on subcategory entity")
     @Column(name = "color_code", nullable = false, length = 7)
     private String colorCode;
 
+    @NotNull(message = "isFlagged is mandatory on subcategory entity")
     @Column(name = "is_flagged", nullable = false)
     private Boolean isFlagged;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @NotNull(message = "category is mandatory on subcategory entity")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Category category;
 
     @CreationTimestamp  // Automatiquement généré lors de l'insertion

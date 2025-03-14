@@ -1,5 +1,11 @@
 POST  {{host}}/api/categories
 Content-Type: application/json
 
- {"id":null, "name":"Loyer", "colorCode":"#FF69B4", "isFlagged": false, "isDefault": false, "userId": 1}
-
+{
+  "id": null,
+  "name": "Loyer",
+  "colorCode": "#FF69B4",
+  "isFlagged": false,
+  "isDefault": false,
+  "userId": 4
+}

@@ -1,12 +1,13 @@
 package net.violainedrt.budget.infrastructure.entity;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.*;
 
 import java.time.LocalDateTime;
 
@@ -16,27 +17,32 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "categories")
+@Table(name = "categories", uniqueConstraints = { @UniqueConstraint(columnNames = {"name", "user_id"})})
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false, unique = true)
+    @NotNull(message = "name is mandatory on category entity")
+    @Column(name = "name", nullable = false, unique = true, length = 150)
     private String name;
 
+    @NotNull(message = "colorCode is mandatory on category entity")
     @Column(name = "color_code", nullable = false, length = 7)
     private String colorCode;
 
+    @NotNull(message = "isFlagged is mandatory on category entity")
     @Column(name = "is_flagged", nullable = false)
     private Boolean isFlagged;
 
-    //if colomn is default, user_id should be set to null
+    @NotNull(message = "isDefault is mandatory on category entity")
     @Column(name = "is_default", nullable = false)
     private Boolean isDefault;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @NotNull(message = "user is mandatory on category entity")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @CreationTimestamp  // Automatiquement généré lors de l'insertion

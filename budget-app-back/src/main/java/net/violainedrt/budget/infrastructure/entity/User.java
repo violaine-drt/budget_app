@@ -1,6 +1,7 @@
 package net.violainedrt.budget.infrastructure.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,17 +24,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "name is mandatory on user entity")
     @Column(name = "name", nullable = false, length = 150)
     private String name;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @NotNull(message = "email is mandatory on user entity")
+    @Column(name = "email", nullable = false, unique = true, length = 255)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @NotNull(message = "password is mandatory on user entity")
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
 
+    @NotNull(message = "balance is mandatory on user entity")
     @Column(name = "balance", nullable = false)
     private BigDecimal userBalance;
+
+    @NotNull(message = "lastLogin is mandatory on user entity")
+    @Column(name = "last_login", nullable = false)
+    private LocalDateTime lastLogin;
 
     @CreationTimestamp  // Automatiquement généré lors de l'insertion
     @Column(updatable = false)
@@ -41,9 +50,5 @@ public class User {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
-
-    @Column(name = "last_login")
-    private LocalDateTime lastLogin;
 
 }

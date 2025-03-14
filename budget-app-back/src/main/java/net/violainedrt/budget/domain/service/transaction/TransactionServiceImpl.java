@@ -7,9 +7,9 @@ import net.violainedrt.budget.infrastructure.entity.Transaction;
 import net.violainedrt.budget.common.exception.ResourceNotFoundException;
 import net.violainedrt.budget.infrastructure.repository.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +22,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionMapper transactionMapper;
 
     @Override
+    @Transactional
     public TransactionDto createTransaction(TransactionDto transactionDto) {
         Transaction transaction = transactionMapper.toTransactionEntity(transactionDto, userRepository, categoryRepository, subcategoryRepository, supplierRepository);
         Transaction savedTransaction = transactionRepository.save(transaction);
@@ -39,10 +40,11 @@ public class TransactionServiceImpl implements TransactionService {
     public List<TransactionDto> getAllTransactions() {
         List<Transaction> transactions = transactionRepository.findAll();
         return transactions.stream().map(transaction -> transactionMapper.toTransactionDto(transaction))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
+    @Transactional
     public void deleteTransaction(Long transactionId) {
     transactionRepository.findById(transactionId).orElseThrow(
                 () -> new ResourceNotFoundException("Transaction does not exist with given id: " + transactionId)

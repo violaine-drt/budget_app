@@ -1,19 +1,16 @@
 package net.violainedrt.budget.domain.service.user;
 
-import jakarta.persistence.*;
 import lombok.RequiredArgsConstructor;
-import net.violainedrt.budget.application.dto.CategoryDto;
 import net.violainedrt.budget.application.dto.UserDto;
 import net.violainedrt.budget.domain.mapper.UserMapper;
 import net.violainedrt.budget.infrastructure.entity.User;
 import net.violainedrt.budget.common.exception.ResourceNotFoundException;
 import net.violainedrt.budget.infrastructure.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,8 +21,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    @Transactional
     public UserDto createUser(UserDto userDto) {
-        UserDto userToSave = userDto.builder()
+        UserDto userToSave = UserDto.builder()
                 .id(userDto.id())
                 .name(userDto.name())
                 .email(userDto.email())
@@ -51,10 +49,11 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getAllUsers() {
         List<User> users = userRepository.findAll();
         return users.stream().map(user -> userMapper.toUserDto(user))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
+    @Transactional
     public UserDto updateUser(Long userId, UserDto updatedUser) {
         User user = userRepository.findById(userId).orElseThrow(
                 () -> new ResourceNotFoundException("User does not exist with given id: "+userId)
@@ -68,6 +67,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long userId) {
         userRepository.findById(userId).orElseThrow(
                 () -> new ResourceNotFoundException("User does not exist with given id: "+userId)

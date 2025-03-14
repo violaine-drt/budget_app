@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 @Builder(toBuilder = true)
 public record TransactionDto(Long id,
                              String description,
-                             String counterparty,
                              BigDecimal amount,
                              LocalDateTime dateTime,
                              FinancialType financialType,

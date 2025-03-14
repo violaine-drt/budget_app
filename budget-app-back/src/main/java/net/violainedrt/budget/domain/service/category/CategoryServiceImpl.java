@@ -8,10 +8,9 @@ import net.violainedrt.budget.common.exception.ResourceNotFoundException;
 import net.violainedrt.budget.infrastructure.repository.CategoryRepository;
 import net.violainedrt.budget.infrastructure.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryMapper categoryMapper;
 
     @Override
+    @Transactional
     public CategoryDto createCategory(CategoryDto categoryDto) {
         CategoryDto categoryToSave = CategoryDto.builder()
                 .id(categoryDto.id())
@@ -47,11 +47,12 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryDto> getAllCategories() {
         List<Category> categories = categoryRepository.findAll();
-        return categories.stream().map(category -> categoryMapper.toCategoryDto(category)).collect(Collectors.toList());
+        return categories.stream().map(category -> categoryMapper.toCategoryDto(category)).toList();
 
     }
 
     @Override
+    @Transactional
     public CategoryDto updateCategory(Long categoryId, CategoryDto updateCategory) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category does not exist with given id: " + categoryId));
         category.setName(updateCategory.name());
@@ -63,6 +64,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public void deleteCategory(Long categoryId) {
         categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category does not exist with given id: " + categoryId));
         categoryRepository.deleteById(categoryId);
