@@ -2,6 +2,7 @@ package net.violainedrt.budget.infrastructure.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class Goal {
     private Long id;
 
     @NotNull(message = "maxAmount is mandatory on goal entity")
+    @Digits(integer = 15, fraction = 2, message = "maxAmount takes up to 15 digits and up to 2 decimal places")
     @Column(name = "maximum_amount", nullable = false, precision = 15, scale = 2)
     private BigDecimal maxAmount;
 

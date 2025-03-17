@@ -2,7 +2,7 @@ package net.violainedrt.budget.infrastructure.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,9 +27,11 @@ public class Transaction {
 
     //nullable
     @Column(name = "description", length = 255)
+    @Size(max = 255, message = "Description must be <= 255 characters")
     private String description;
 
     @NotNull(message = "amount is mandatory on transaction entity")
+    @Digits(integer = 15, fraction = 2, message = "amount takes up to 15 digits and up to 2 decimal places")
     @Column(name = "amount", nullable = false, precision = 15, scale = 2)
     private BigDecimal amount;
 
@@ -46,12 +48,12 @@ public class Transaction {
     @NotNull(message = "category is mandatory on transaction entity")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false) // Si pas de catégorie, ce sera la catég divers : à gérer dans le service
-    private net.violainedrt.budget.infrastructure.entity.Category category;
+    private Category category;
 
     //nullable
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategory", referencedColumnName = "id")
-    private net.violainedrt.budget.infrastructure.entity.Subcategory subcategory;
+    private Subcategory subcategory;
 
     @NotNull(message = "user is mandatory on transaction entity")
     @ManyToOne(fetch = FetchType.LAZY)
@@ -59,12 +61,12 @@ public class Transaction {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-
     //Prévoir un supplier divers
     @NotNull(message = "supplier is mandatory on transaction entity")
     @ManyToOne(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "supplier", referencedColumnName = "id", nullable = false) // Si pas de supplier, ce sera le supplier divers : à gérer dans le service
-    private net.violainedrt.budget.infrastructure.entity.Supplier supplier;
+    private Supplier supplier;
 
     @CreationTimestamp  // Automatiquement généré lors de l'insertion
     @Column(updatable = false)

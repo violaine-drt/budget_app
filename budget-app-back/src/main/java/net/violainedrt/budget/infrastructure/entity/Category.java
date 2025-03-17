@@ -3,6 +3,7 @@ package net.violainedrt.budget.infrastructure.entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,11 +25,13 @@ public class Category {
     private Long id;
 
     @NotNull(message = "name is mandatory on category entity")
+    @Size(min = 1, max = 150, message = "Name must be between 1 and 150 characters")
     @Column(name = "name", nullable = false, unique = true, length = 150)
     private String name;
 
     @NotNull(message = "colorCode is mandatory on category entity")
-    @Column(name = "color_code", nullable = false, length = 7)
+    @Size(max = 9, message = "color code must be <=9 characters")
+    @Column(name = "color_code", nullable = false, length = 9)
     private String colorCode;
 
     @NotNull(message = "isFlagged is mandatory on category entity")

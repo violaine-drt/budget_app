@@ -3,6 +3,7 @@ package net.violainedrt.budget.infrastructure.entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class Supplier {
     private Long id;
 
     @NotNull(message = "name is mandatory on supplier entity")
+    @Size(min = 1, max = 150, message = "Name must be between 1 and 150 characters")
     @Column(name = "name", nullable = false, length = 150)
     private String name;
 
