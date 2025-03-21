@@ -2,7 +2,7 @@ package net.violainedrt.budget.domain.mapper;
 
 
 import jakarta.persistence.EntityNotFoundException;
-import net.violainedrt.budget.application.dto.CategoryDto;
+import net.violainedrt.budget.application.dto.category.*;
 import net.violainedrt.budget.infrastructure.entity.*;
 import net.violainedrt.budget.infrastructure.repository.UserRepository;
 import org.mapstruct.*;
@@ -12,11 +12,14 @@ public interface CategoryMapper {
 
 
     @Mapping(source = "user.id", target = "userId")
-    CategoryDto toCategoryDto (Category categoryEntity);
+    QueryCategoryDto toCategoryDto (Category categoryEntity);
 
     @Mapping(source = "userId", target = "user", qualifiedByName = "mapUserIdToUser")
-    Category toCategoryEntity (CategoryDto categoryDto, @Context UserRepository userRepository);
+    Category toCategoryEntity (CreateCategoryDto createCategoryDto, @Context UserRepository userRepository);
 
+    // 🔹 Met à jour une entité Category existante avec un DTO de mise à jour. Ignore les champs nuls
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateCategoryFromDto(UpdateCategoryDto updateCategoryDto, @MappingTarget Category categoryEntity);
 
     @Named("mapUserIdToUser")
     default User mapUserIdToUser(Long userId, @Context UserRepository userRepository) {
@@ -29,4 +32,6 @@ public interface CategoryMapper {
 
 
 }
+
+
 

@@ -1,15 +1,15 @@
 package net.violainedrt.budget.domain.service.category;
 
-import net.violainedrt.budget.application.dto.CategoryDto;
+import net.violainedrt.budget.application.dto.category.*;
 
 import java.util.List;
 
 public interface CategoryService {
-    CategoryDto createCategory (CategoryDto categoryDto);
-    CategoryDto getCategoryById(Long categoryId);
-    List<CategoryDto> getAllCategories();
+    //@todo Devra valider qu'une catégorie appartient bien à une sous-catégroie (méthode qui sera appellée ensuite dans le GoalService, TransactionService)
 
-    CategoryDto updateCategory(Long categoryId, CategoryDto updateCategory);
-
+    QueryCategoryDto createCategory (CreateCategoryDto category);
+    QueryCategoryDto getCategoryById(Long categoryId);
+    List<QueryCategoryDto> getAllCategories();
+    QueryCategoryDto updateCategory(Long categoryId, UpdateCategoryDto category);
     void deleteCategory(Long categoryId);
 }

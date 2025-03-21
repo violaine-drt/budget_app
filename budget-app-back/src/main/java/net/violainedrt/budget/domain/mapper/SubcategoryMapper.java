@@ -1,7 +1,7 @@
 package net.violainedrt.budget.domain.mapper;
 
 import jakarta.persistence.EntityNotFoundException;
-import net.violainedrt.budget.application.dto.SubcategoryDto;
+import net.violainedrt.budget.application.dto.subcategory.*;
 import net.violainedrt.budget.infrastructure.entity.*;
 import net.violainedrt.budget.infrastructure.repository.*;
 import org.mapstruct.*;
@@ -11,11 +11,14 @@ public interface SubcategoryMapper {
 
 
     @Mapping(source = "category.id", target = "categoryId")
-    SubcategoryDto toSubcategoryDto (Subcategory subcategoryEntity);
+    QuerySubcategoryDto toSubcategoryDto (Subcategory subcategoryEntity);
 
     @Mapping(source = "categoryId", target = "category", qualifiedByName = "mapCategoryIdToCategory")
-    Subcategory toSubcategoryEntity (SubcategoryDto subcategoryDto, @Context CategoryRepository categoryRepository);
+    Subcategory toSubcategoryEntity (CreateSubcategoryDto createSubcategoryDto, @Context CategoryRepository categoryRepository);
 
+    // 🔹 Met à jour une entité Subcategory existante avec un DTO de mise à jour. Ignore les champs nuls
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateSubcategoryFromDto(UpdateSubcategoryDto updateSubcategoryDto, @MappingTarget Subcategory subcategoryEntity);
 
     @Named("mapCategoryIdToCategory")
     default Category mapCategoryIdToCategory (Long categoryId, @Context CategoryRepository categoryRepository) {

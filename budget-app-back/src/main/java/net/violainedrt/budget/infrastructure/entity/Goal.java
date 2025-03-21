@@ -55,7 +55,7 @@ public class Goal {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-    //On garde nullable la sous-catégorie, un objectif pouvant être appliqué à une catégorie entière
+    //On garde nullable la sous-catégorie, un goal pouvant être appliqué à une catégorie entière
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategory_id", referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.CASCADE)

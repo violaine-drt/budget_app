@@ -1,16 +1,20 @@
 package net.violainedrt.budget.domain.service.category;
 
 import lombok.RequiredArgsConstructor;
-import net.violainedrt.budget.application.dto.CategoryDto;
+import net.violainedrt.budget.application.dto.category.*;
 import net.violainedrt.budget.domain.mapper.*;
+import net.violainedrt.budget.domain.service.user.UserServiceImpl;
 import net.violainedrt.budget.infrastructure.entity.Category;
 import net.violainedrt.budget.common.exception.ResourceNotFoundException;
 import net.violainedrt.budget.infrastructure.repository.CategoryRepository;
 import net.violainedrt.budget.infrastructure.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -21,52 +25,51 @@ public class CategoryServiceImpl implements CategoryService {
     private final UserRepository userRepository;
     private final CategoryMapper categoryMapper;
 
+
+    //@todo : ajouter un système de logs
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+
+
+    private Category findCategoryById(Long categoryId) {
+        return categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new ResourceNotFoundException("Category does not exist with given ID: " + categoryId));
+    }
+
     @Override
     @Transactional
-    public CategoryDto createCategory(CategoryDto categoryDto) {
-        CategoryDto categoryToSave = CategoryDto.builder()
-                .id(categoryDto.id())
-                .name(categoryDto.name())
-                .colorCode(categoryDto.colorCode())
-                .isDefault(categoryDto.isDefault())
-                .isFlagged(categoryDto.isFlagged())
-                .userId(categoryDto.userId())
-                .build();
-        Category category = categoryMapper.toCategoryEntity(categoryToSave, userRepository);
-        Category savedCategory = categoryRepository.save(category);
+    public QueryCategoryDto createCategory(CreateCategoryDto category) {
+        Category newCategoryEntity = categoryMapper.toCategoryEntity(category, userRepository);
+        Category savedCategory = categoryRepository.save(newCategoryEntity);
         return categoryMapper.toCategoryDto(savedCategory);
     }
 
     @Override
-    public CategoryDto getCategoryById(Long categoryId) {
-        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category does not exist with given ID : " + categoryId));
+    public QueryCategoryDto getCategoryById(Long categoryId) {
+        Category category = findCategoryById(categoryId);
         return categoryMapper.toCategoryDto(category);
 
     }
 
     @Override
-    public List<CategoryDto> getAllCategories() {
+    public List<QueryCategoryDto> getAllCategories() {
         List<Category> categories = categoryRepository.findAll();
-        return categories.stream().map(category -> categoryMapper.toCategoryDto(category)).toList();
+        return categories.stream().map(categoryMapper::toCategoryDto).toList();
 
     }
 
     @Override
     @Transactional
-    public CategoryDto updateCategory(Long categoryId, CategoryDto updateCategory) {
-        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category does not exist with given id: " + categoryId));
-        category.setName(updateCategory.name());
-        category.setColorCode(updateCategory.colorCode());
-        category.setIsDefault(updateCategory.isDefault());
-        category.setIsFlagged(updateCategory.isFlagged());
-        Category updatedCategoryObj = categoryRepository.save(category);
-        return categoryMapper.toCategoryDto(updatedCategoryObj);
+    public QueryCategoryDto updateCategory(Long categoryId, UpdateCategoryDto category) {
+        Category toUpdateCategory = findCategoryById(categoryId);
+        categoryMapper.updateCategoryFromDto(category, toUpdateCategory);
+        Category updatedCategory = categoryRepository.save(toUpdateCategory);
+        return categoryMapper.toCategoryDto(updatedCategory);
     }
 
     @Override
     @Transactional
     public void deleteCategory(Long categoryId) {
-        categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category does not exist with given id: " + categoryId));
+       findCategoryById(categoryId);
         categoryRepository.deleteById(categoryId);
     }
 }

@@ -2,7 +2,7 @@ package net.violainedrt.budget.application.controller;
 
 import lombok.AllArgsConstructor;
 
-import net.violainedrt.budget.application.dto.CategoryDto;
+import net.violainedrt.budget.application.dto.category.*;
 import net.violainedrt.budget.domain.service.category.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,31 +19,31 @@ public class CategoryController {
     // Build Add Category REST API
     //@todo changer construction objet category
     @PostMapping
-    public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto) {
-        CategoryDto savedCategory = categoryService.createCategory(categoryDto);
+    public ResponseEntity<QueryCategoryDto> createCategory(@RequestBody CreateCategoryDto category) {
+        QueryCategoryDto savedCategory = categoryService.createCategory(category);
         return new ResponseEntity<>(savedCategory, HttpStatus.CREATED);
 
     }
 
     //Build Get Category REST API
     @GetMapping("{id}")
-    public ResponseEntity<net.violainedrt.budget.application.dto.CategoryDto> getCategoryById(@PathVariable("id") Long categoryId) {
-        CategoryDto categoryDto = categoryService.getCategoryById(categoryId);
-        return ResponseEntity.ok(categoryDto);
+    public ResponseEntity<QueryCategoryDto> getCategoryById(@PathVariable("id") Long categoryId) {
+        QueryCategoryDto category = categoryService.getCategoryById(categoryId);
+        return ResponseEntity.ok(category);
     }
 
     //Build Get All categories REST API
     @GetMapping
-    public ResponseEntity<List<net.violainedrt.budget.application.dto.CategoryDto>> getAllCategories() {
-        List<net.violainedrt.budget.application.dto.CategoryDto> categories = categoryService.getAllCategories();
+    public ResponseEntity<List<QueryCategoryDto>> getAllCategories() {
+        List<QueryCategoryDto> categories = categoryService.getAllCategories();
         return ResponseEntity.ok(categories);
     }
 
     //Build update Category REST API
     @PutMapping("{id}")
-    public ResponseEntity<net.violainedrt.budget.application.dto.CategoryDto> updateCategory(@PathVariable("id") Long categoryId, @RequestBody CategoryDto updatedCategory) {
-        CategoryDto categoryDto = categoryService.updateCategory(categoryId, updatedCategory);
-        return ResponseEntity.ok(categoryDto);
+    public ResponseEntity<QueryCategoryDto> updateCategory(@PathVariable("id") Long categoryId, @RequestBody UpdateCategoryDto category) {
+        QueryCategoryDto updatedCategory = categoryService.updateCategory(categoryId, category);
+        return ResponseEntity.ok(updatedCategory);
     }
 
     @DeleteMapping("{id}")

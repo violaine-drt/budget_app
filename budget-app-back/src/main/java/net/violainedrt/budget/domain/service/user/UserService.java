@@ -1,16 +1,15 @@
 package net.violainedrt.budget.domain.service.user;
 
-import net.violainedrt.budget.application.dto.UserDto;
+import net.violainedrt.budget.application.dto.user.*;
 
 import java.util.List;
 
+
 public interface UserService {
-    UserDto createUser(UserDto userDto);
-    UserDto getUserByID(Long userId);
-
-    List<UserDto> getAllUsers();
-    UserDto updateUser(Long userId, UserDto updatedUser);
-
+    QueryUserDto createUser(CreateUserDto user);
+    QueryUserDto getUserByID(Long userId);
+    List<QueryUserDto> getAllUsers();
+    QueryUserDto updateUser(Long userId, UpdateUserDto user);
     void deleteUser (Long userId);
 
 

@@ -1,4 +1,4 @@
-package net.violainedrt.budget.application.dto;
+package net.violainedrt.budget.application.dto.supplier;
 
 import lombok.*;
 
