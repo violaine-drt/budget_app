@@ -1,6 +1,7 @@
 package net.violainedrt.budget.application.controller;
 
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 import net.violainedrt.budget.application.dto.user.*;
@@ -20,9 +21,8 @@ public class UserController {
 
 
     @PostMapping
-    //Retour = ResponseEntity : une classe fournie par Spring, représente une réponse HTTP.
-    //Encapsule un objet de type UserDto
-    public ResponseEntity<QueryUserDto> createUser(@RequestBody CreateUserDto user){
+    //Return value  ResponseEntity : http response
+    public ResponseEntity<QueryUserDto> createUser(@Valid  @RequestBody CreateUserDto user){
 
       QueryUserDto savedUser = userService.createUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
@@ -44,7 +44,7 @@ public class UserController {
 
     //Build update User REST API
     @PutMapping("{id}")
-    public ResponseEntity<QueryUserDto> updateUser(@PathVariable("id") Long userId, @RequestBody UpdateUserDto user){
+    public ResponseEntity<QueryUserDto> updateUser(@PathVariable("id") Long userId, @Valid @RequestBody UpdateUserDto user){
         QueryUserDto updatedUser = userService.updateUser(userId, user);
         return ResponseEntity.ok(updatedUser);
     }

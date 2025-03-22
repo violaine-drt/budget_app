@@ -26,8 +26,8 @@ public class Transaction {
     private Long id;
 
     //nullable
-    @Column(name = "description", length = 255)
     @Size(max = 255, message = "Description must be <= 255 characters")
+    @Column(name = "description", length = 255)
     private String description;
 
     @NotNull(message = "amount is mandatory on transaction entity")

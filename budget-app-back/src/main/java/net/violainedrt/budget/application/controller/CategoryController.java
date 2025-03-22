@@ -1,5 +1,6 @@
 package net.violainedrt.budget.application.controller;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 import net.violainedrt.budget.application.dto.category.*;
@@ -19,7 +20,7 @@ public class CategoryController {
     // Build Add Category REST API
     //@todo changer construction objet category
     @PostMapping
-    public ResponseEntity<QueryCategoryDto> createCategory(@RequestBody CreateCategoryDto category) {
+    public ResponseEntity<QueryCategoryDto> createCategory(@Valid @RequestBody CreateCategoryDto category) {
         QueryCategoryDto savedCategory = categoryService.createCategory(category);
         return new ResponseEntity<>(savedCategory, HttpStatus.CREATED);
 
@@ -41,7 +42,7 @@ public class CategoryController {
 
     //Build update Category REST API
     @PutMapping("{id}")
-    public ResponseEntity<QueryCategoryDto> updateCategory(@PathVariable("id") Long categoryId, @RequestBody UpdateCategoryDto category) {
+    public ResponseEntity<QueryCategoryDto> updateCategory(@PathVariable("id") Long categoryId, @Valid @RequestBody UpdateCategoryDto category) {
         QueryCategoryDto updatedCategory = categoryService.updateCategory(categoryId, category);
         return ResponseEntity.ok(updatedCategory);
     }

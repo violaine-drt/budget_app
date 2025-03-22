@@ -1,6 +1,7 @@
 package net.violainedrt.budget.application.controller;
 
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import net.violainedrt.budget.application.dto.transaction.*;
 import net.violainedrt.budget.domain.service.transaction.TransactionService;
@@ -17,7 +18,7 @@ public class TransactionController {
     private TransactionService transactionService;
     // Build Add Transaction REST API
     @PostMapping
-    public ResponseEntity<QueryTransactionDto> createTransaction(@RequestBody CreateTransactionDto transaction){
+    public ResponseEntity<QueryTransactionDto> createTransaction(@Valid @RequestBody CreateTransactionDto transaction){
         QueryTransactionDto savedTransaction = transactionService.createTransaction(transaction);
         return new ResponseEntity<>(savedTransaction, HttpStatus.CREATED);
     }
@@ -38,7 +39,7 @@ public class TransactionController {
 
     //Build update Transaction REST API
     @PutMapping("{id}")
-    public ResponseEntity<QueryTransactionDto> updateTransaction(@PathVariable("id") Long transactionId, @RequestBody UpdateTransactionDto transaction) {
+    public ResponseEntity<QueryTransactionDto> updateTransaction(@PathVariable("id") Long transactionId, @Valid @RequestBody UpdateTransactionDto transaction) {
         QueryTransactionDto updatedTransaction = transactionService.updateTransaction(transactionId, transaction);
         return ResponseEntity.ok(updatedTransaction);
     }

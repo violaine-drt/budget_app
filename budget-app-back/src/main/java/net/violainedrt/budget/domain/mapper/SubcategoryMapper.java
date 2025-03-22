@@ -16,7 +16,7 @@ public interface SubcategoryMapper {
     @Mapping(source = "categoryId", target = "category", qualifiedByName = "mapCategoryIdToCategory")
     Subcategory toSubcategoryEntity (CreateSubcategoryDto createSubcategoryDto, @Context CategoryRepository categoryRepository);
 
-    // 🔹 Met à jour une entité Subcategory existante avec un DTO de mise à jour. Ignore les champs nuls
+    // Updates existing entity. Ignores null fields
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateSubcategoryFromDto(UpdateSubcategoryDto updateSubcategoryDto, @MappingTarget Subcategory subcategoryEntity);
 

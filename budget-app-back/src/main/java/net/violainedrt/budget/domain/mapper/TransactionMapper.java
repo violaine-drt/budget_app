@@ -22,7 +22,7 @@ public interface TransactionMapper {
     @Mapping(source = "supplierId", target = "supplier", qualifiedByName = "mapSupplierIdToSupplier")
     Transaction toTransactionEntity (CreateTransactionDto createtransactionDto, @Context UserRepository userRepository, @Context CategoryRepository categoryRepository, @Context SubcategoryRepository subcategoryRepository, @Context SupplierRepository supplierRepository);
 
-    // 🔹 Met à jour une entité Transaction existante avec un DTO de mise à jour. Ignore les champs nuls
+    // Updates existing entity. Ignores null fields
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateTransactionFromDto(UpdateTransactionDto updateTransactionDto, @MappingTarget Transaction transactionEntity);
 

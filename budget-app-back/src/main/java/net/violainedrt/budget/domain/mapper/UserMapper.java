@@ -12,7 +12,7 @@ public interface UserMapper {
 
     User toUserEntity (CreateUserDto createUserDto);
 
-    // 🔹 Met à jour une entité User existante avec un DTO de mise à jour (UpdateUserDto). Ignore les champs nuls
+    // Updates existing entity. Ignores null fields
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateUserFromDto(UpdateUserDto updateUserDto, @MappingTarget User userEntity);
 }

@@ -17,7 +17,7 @@ public interface CategoryMapper {
     @Mapping(source = "userId", target = "user", qualifiedByName = "mapUserIdToUser")
     Category toCategoryEntity (CreateCategoryDto createCategoryDto, @Context UserRepository userRepository);
 
-    // 🔹 Met à jour une entité Category existante avec un DTO de mise à jour. Ignore les champs nuls
+    // Updates existing entity. Ignores null fields
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateCategoryFromDto(UpdateCategoryDto updateCategoryDto, @MappingTarget Category categoryEntity);
 

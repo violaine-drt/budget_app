@@ -2,8 +2,7 @@ package net.violainedrt.budget.infrastructure.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +29,7 @@ public class Category {
     private String name;
 
     @NotNull(message = "colorCode is mandatory on category entity")
-    @Size(max = 9, message = "color code must be <=9 characters")
+    @Pattern(regexp = "^#[0-9A-Fa-f]{6}$", message = "Color code mus be valid hexadecimal (ex: #FFFFFF)")
     @Column(name = "color_code", nullable = false, length = 9)
     private String colorCode;
 

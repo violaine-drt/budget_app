@@ -20,7 +20,7 @@ public interface GoalMapper {
     @Mapping(source = "subcategoryId", target = "subcategory", qualifiedByName = "mapSubcategoryIdToSubcategory")
     Goal toGoalEntity (CreateGoalDto createGoalDto, @Context UserRepository userRepository, @Context CategoryRepository categoryRepository, @Context SubcategoryRepository subcategoryRepository);
 
-    // 🔹 Met à jour une entité Goal existante avec un DTO de mise à jour. Ignore les champs nuls
+    // Updates existing entity. Ignores null fields
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateGoalFromDto (UpdateGoalDto updateGoalDto, @MappingTarget Goal goalEntity);
 
